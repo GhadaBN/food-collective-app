@@ -1,0 +1,41 @@
+.navbar {
+  padding: 30px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-menu {
+  display: flex;
+  list-style: none;
+  gap: 3rem;
+}
+.navbar li {
+  cursor: pointer;
+}
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.navbar-right img {
+  width: 1.6rem;
+}
+.navbar .active {
+  padding-bottom: 2px;
+  border-bottom: 2px solid black;
+}
+
+.basket-container {
+  position: relative;
+}
+.basket-container .dot {
+  position: absolute;
+  min-width: 12px;
+  min-height: 12px;
+  background-color: red;
+  border-radius: 8px;
+  top: 17px;
+  right: 17px;
+}

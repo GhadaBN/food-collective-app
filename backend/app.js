@@ -2,12 +2,9 @@ const express = require("express");
 const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
+const restaurantRouter = require("./routes/restaurant.route");
 
-require("dotenv").config(); // Ensure this is near the top to load env vars early
-
-// Database connection
-const connectDB = require("./db/db"); // Adjust the path as necessary
-connectDB();
+require("dotenv").config();
 
 // Initialize Express App
 const app = express();
@@ -20,6 +17,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(morgan("dev"));
 app.use(express.static("public"));
 app.use(cookieParser());
+
+// Database connection
+const connectDB = require("./db/db");
+connectDB();
+
+//API Endpoints
+app.use("/api/restaurant", restaurantRouter);
+app.use("/images", express.static("uploads"));
 
 // Routes
 app.use("/docs", (req, res) => {

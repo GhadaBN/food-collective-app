@@ -1,12 +1,22 @@
+/* color-Palette
+#0084e3 blue
+#ff1414 red
+#f7f2d7 off-White */
+
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
   font-family: outfit;
 }
 body {
   min-height: 100vh;
+  overflow-x: hidden;
+  background-color: #efe9e3;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 a {
   text-decoration: none;
@@ -16,4 +26,5 @@ a {
 .app {
   width: 95%;
   margin: auto;
+  padding-top: 0;
 }

@@ -3,6 +3,7 @@ const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const restaurantRouter = require("./routes/restaurant.route");
+const menuRouter = require("./routes/menu.route");
 
 require("dotenv").config();
 
@@ -24,6 +25,7 @@ connectDB();
 
 //API Endpoints
 app.use("/api/restaurant", restaurantRouter);
+app.use("/api/menu", menuRouter);
 app.use("/images", express.static("uploads"));
 
 // Routes

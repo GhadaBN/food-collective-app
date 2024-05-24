@@ -6,7 +6,7 @@ const fs = require("fs").promises;
 const addRestaurant = async (req, res) => {
   let image_filename = `${req.file.filename}`;
   const restaurant = new Restaurant({
-    restaurantName: req.body.name,
+    restaurantName: req.body.restaurantName,
     description: req.body.description,
     image: image_filename,
     category: req.body.category,
@@ -22,7 +22,7 @@ const addRestaurant = async (req, res) => {
     console.error("Failed to add restaurant:", error);
     res.status(500).json({
       success: false,
-      message: "Error adding food",
+      message: "Error adding restaurant",
       error: error.message,
     });
   }
@@ -47,6 +47,34 @@ const listRestaurants = async (req, res) => {
     });
   }
 };
+
+//Get restaurant by id:
+
+const getRestaurantById = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const restaurant = await Restaurant.findById(id);
+    if (!restaurant) {
+      return res
+        .status(404)
+        .json({ success: false, message: "Restaurant not found" });
+    }
+    res.status(200).json({
+      success: true,
+      message: "Restaurant retrieved successfully",
+      data: restaurant,
+    });
+  } catch (error) {
+    console.error("Error retrieving restaurant:", error);
+    res.status(500).json({
+      success: false,
+      message: "Error retrieving restaurant",
+      error: error.message,
+    });
+  }
+};
+
+//Remove restaurant
 
 const removeRestaurant = async (req, res) => {
   const { id } = req.body;
@@ -75,4 +103,9 @@ const removeRestaurant = async (req, res) => {
   }
 };
 
-module.exports = { addRestaurant, listRestaurants, removeRestaurant };
+module.exports = {
+  addRestaurant,
+  listRestaurants,
+  removeRestaurant,
+  getRestaurantById,
+};

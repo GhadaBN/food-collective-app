@@ -3,6 +3,7 @@ const {
   addRestaurant,
   listRestaurants,
   removeRestaurant,
+  getRestaurantById,
 } = require("../controllers/restaurantController");
 // const { getFoodById } = require("../controllers/foodController");
 const multer = require("multer");
@@ -21,5 +22,7 @@ const upload = multer({ storage: storage });
 restaurantRouter.post("/add", upload.single("image"), addRestaurant);
 restaurantRouter.get("/list", listRestaurants);
 restaurantRouter.post("/remove", removeRestaurant);
+//Get restaurant by Id
+restaurantRouter.get("/restaurant/:id", getRestaurantById);
 
 module.exports = restaurantRouter;

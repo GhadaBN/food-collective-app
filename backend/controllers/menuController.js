@@ -5,7 +5,7 @@ const fs = require("fs").promises;
 
 //add Menu Item
 const addMenuItem = async (req, res) => {
-  let image_filename = `${req.file.filename}`;
+  let image_filename = req.file ? req.file.filename : "default.jpg";
   // Find restaurant by name
   const restaurant = await Restaurant.findOne({
     restaurantName: req.body.restaurantName,

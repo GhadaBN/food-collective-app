@@ -25,26 +25,30 @@ const LoginPopup = ({ setShowLogin }) => {
     let newUrl = url + (currState === "login" ? "/auth/login" : "/auth/signup");
 
     try {
-      // Making the POST request with additional headers
       const response = await axios.post(newUrl, data, {
         headers: {
           "Content-Type": "application/json",
         },
       });
-
-      if (response.data.user) {
-        // Since 'user' object is being returned on success
-        console.log("Signup successful, user:", response.data.user);
-        setToken(response.data.user._id); // Example: Using user ID as token, adjust as needed
-        localStorage.setItem("token", response.data.user._id); // Adjust based on actual token handling
+      // Adjust this to check for authToken instead of user
+      if (response.data.authToken) {
+        console.log(
+          "Authentication successful, token received:",
+          response.data.authToken
+        );
+        setToken(response.data.authToken);
+        localStorage.setItem("token", response.data.authToken);
         setShowLogin(false);
       } else {
-        console.log("Signup failed, response:", response.data);
-        alert(response.data.message || "Failed to signup.");
+        console.log("Authentication failed, response:", response.data);
+        alert(response.data.message || "Authentication failed.");
       }
     } catch (error) {
       console.error("Error during authentication:", error);
-      alert("Failed to authenticate. Please try again.");
+      alert(
+        "Failed to authenticate. Please try again. " +
+          (error.response ? error.response.data.message : "")
+      );
     }
   };
 

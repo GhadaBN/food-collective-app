@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import "./Navbar.css";
 import { assets } from "../../assets/assets";
+import { StoreContext } from "../../context/StoreContext";
 
 function Navbar({ setShowLogin }) {
   const [menu, setMenu] = useState("home");
+  // const { token, setToken } = useContext(StoreContext);
   return (
     <div className="navbar">
       <div className="logo">

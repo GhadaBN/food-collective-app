@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import "./Navbar.css";
 import { assets } from "../../assets/assets";
 
-function Navbar() {
+function Navbar({ setShowLogin }) {
   const [menu, setMenu] = useState("home");
   return (
     <div className="navbar">
-      <div className="logo">Logo</div>
+      <div className="logo">
+        <img src={assets.logo} alt="" className="logo" />
+      </div>
       <ul className="navbar-menu">
         <li
           onClick={() => setMenu("home")}
@@ -32,7 +34,11 @@ function Navbar() {
           <img src={assets.basket_icon} className="basket-icon" />
           <div className="dot"></div>
         </div>
-        <img src={assets.user_icon} className="user-icon" />
+        <img
+          onClick={() => setShowLogin(true)}
+          src={assets.user_icon}
+          className="user-icon"
+        />
       </div>
     </div>
   );

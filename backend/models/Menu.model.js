@@ -1,5 +1,5 @@
 const { model, Schema } = require("mongoose");
-
+const mongoose = require("mongoose");
 const menuItemSchema = new Schema({
   restaurant: {
     type: Schema.Types.ObjectId,
@@ -7,7 +7,7 @@ const menuItemSchema = new Schema({
     required: true,
   },
   itemName: { type: String, required: true },
-  price: { type: String, required: true },
+  price: { type: Number, required: true },
   image: { type: String, required: true },
 });
 

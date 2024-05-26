@@ -13,11 +13,10 @@
 }
 body {
   min-height: 100vh;
+  min-width: 100vw;
   overflow-x: hidden;
   background-color: #efe9e3;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  display: block;
 }
 a {
   text-decoration: none;

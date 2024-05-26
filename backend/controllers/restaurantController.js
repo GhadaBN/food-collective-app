@@ -59,6 +59,9 @@ const getRestaurantById = async (req, res) => {
         .status(404)
         .json({ success: false, message: "Restaurant not found" });
     }
+    restaurant.image =
+      req.protocol + "://" + req.get("host") + "/uploads/" + restaurant.image;
+
     res.status(200).json({
       success: true,
       message: "Restaurant retrieved successfully",

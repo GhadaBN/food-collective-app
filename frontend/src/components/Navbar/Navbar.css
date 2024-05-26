@@ -1,5 +1,6 @@
 .navbar {
   width: 95%;
+  min-width: 95%;
   margin: 1.5rem auto 0 auto;
   padding: 10px 30px;
   display: flex;

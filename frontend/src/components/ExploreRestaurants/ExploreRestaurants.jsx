@@ -1,19 +1,27 @@
 import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import "./ExploreRestaurants.css";
-// import { restaurants } from "../../assets/assets";
 import { StoreContext } from "../../context/StoreContext";
 
 const ExploreRestaurants = () => {
   const { restaurants } = useContext(StoreContext);
+  const navigate = useNavigate();
+
+  const handleRestaurantClick = (restaurant) => {
+    navigate(`/menu/${restaurant._id}`, { state: { restaurant } }); // Pass the entire restaurant object as state
+  };
   return (
     <div className="explore-restaurants" id="explore-restaurants">
       <p className="explore-restaurants-text">Explore Restaurants</p>
       <div className="restaurants-list">
         {restaurants.map((restaurant) => (
-          <div key={restaurant._id} className="restaurant">
-            {" "}
-            <img src={restaurant.image} />
-            <p>{restaurant.restaurantName}</p> // Displaying the restaurant name
+          <div
+            key={restaurant._id}
+            className="restaurant"
+            onClick={() => handleRestaurantClick(restaurant)}
+          >
+            <img src={restaurant.image} alt={restaurant.restaurantName} />
+            <p>{restaurant.restaurantName}</p>
             <p>{restaurant.description}</p> // Displaying the description
             <p>
               <b>Category:</b> {restaurant.category}

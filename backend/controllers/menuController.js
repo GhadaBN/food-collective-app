@@ -44,18 +44,20 @@ const addMenuItem = async (req, res) => {
 //Get list of all items
 
 const listMenuItems = async (req, res) => {
+  const { restaurantId } = req.query; // Get restaurantId from query parameters
   try {
-    const allMenuItems = await MenuItem.find().populate("restaurant");
-    res.status(201).json({
+    const query = restaurantId ? { restaurant: restaurantId } : {}; // Filter by restaurantId if provided
+    const menuItems = await MenuItem.find(query).populate("restaurant");
+    res.status(200).json({
       success: true,
-      message: "List menu items retrieved succefully",
-      data: allMenuItems,
+      message: "Menu items retrieved successfully",
+      data: menuItems,
     });
   } catch (error) {
-    console.error("Error retrieving menu items list:", error);
+    console.error("Error retrieving menu items:", error);
     res.status(500).json({
       success: false,
-      message: "Error retrieving menu items list",
+      message: "Error retrieving menu items",
       error: error.message,
     });
   }

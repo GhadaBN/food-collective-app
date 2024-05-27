@@ -1,12 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import MenuDisplay from "../../components/MenuDisplay/MenuDisplay"; // Corrected import path
 
 function RestaurantDetails() {
   const [restaurant, setRestaurant] = useState({});
   const [menuItems, setMenuItems] = useState([]);
   const { restaurantId } = useParams();
-
   const url = "http://localhost:5005";
 
   useEffect(() => {
@@ -24,7 +24,8 @@ function RestaurantDetails() {
         }
       })
       .catch((err) => console.log("Error fetching restaurant:", err));
-    // Fetch menu details
+
+    // Fetch menu items for this restaurant
     axios
       .get(`${url}/api/menu/list/${restaurantId}`)
       .then((resp) => {
@@ -38,8 +39,7 @@ function RestaurantDetails() {
   }, [restaurantId]);
 
   return (
-    <div className="menu-items">
-      {" "}
+    <div>
       {restaurant && (
         <div className="restaurant-header">
           <img
@@ -53,13 +53,8 @@ function RestaurantDetails() {
           </p>
         </div>
       )}
-      {menuItems.map((item) => (
-        <div key={item._id}>
-          <img src={`${url}/images/${item.image}`} alt={item.itemName} />
-          <p>{item.itemName}</p>
-          <p>${item.price}</p>
-        </div>
-      ))}
+      <MenuDisplay items={menuItems} baseUrl={url} />{" "}
+      {/* Use the renamed component */}
     </div>
   );
 }

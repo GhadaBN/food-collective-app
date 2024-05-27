@@ -1,0 +1,37 @@
+.cart {
+  margin: 5rem auto 1rem auto;
+  width: 90%;
+}
+.cart-bottom {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.cart-items-title {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr 1fr;
+  align-items: center;
+}
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr 1fr;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.cart-item-image {
+  width: 70%;
+  height: auto;
+}
+
+.cart-item-name,
+.cart-item-price,
+.cart-item-quantity,
+.cart-item-total,
+.cart-item-remove {
+  margin: 0 1rem;
+}
+button {
+  cursor: pointer;
+}

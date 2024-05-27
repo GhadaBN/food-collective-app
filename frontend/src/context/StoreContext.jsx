@@ -10,9 +10,9 @@ const StoreContextProvider = ({ children }) => {
     return localData ? JSON.parse(localData) : {};
   });
   const [menuItems, setMenuItems] = useState([]);
+  const [restaurants, setRestaurants] = useState([]);
   const url = "http://localhost:5005";
   const [token, setToken] = useState(localStorage.getItem("token") || "");
-  const [restaurants, setRestaurants] = useState([]);
 
   useEffect(() => {
     const fetchMenuItems = async () => {

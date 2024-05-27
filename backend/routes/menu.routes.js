@@ -3,6 +3,7 @@ const {
   addMenuItem,
   listMenuItems,
   removeMenuItem,
+  listMenuItemsByRestaurant,
 } = require("../controllers/menuController");
 
 const multer = require("multer");
@@ -21,5 +22,6 @@ const upload = multer({ storage: storage });
 menuRouter.post("/add", upload.single("image"), addMenuItem);
 menuRouter.get("/list", listMenuItems);
 menuRouter.post("/remove", removeMenuItem);
+menuRouter.get("/list/:restaurantId", listMenuItemsByRestaurant);
 
 module.exports = menuRouter;

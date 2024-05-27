@@ -8,8 +8,9 @@ const ExploreRestaurants = () => {
   const navigate = useNavigate();
 
   const handleRestaurantClick = (restaurant) => {
-    navigate(`/menu/${restaurant._id}`, { state: { restaurant } }); // Pass the entire restaurant object as state
+    navigate(`/restaurants/${restaurant._id}`, { state: { restaurant } });
   };
+
   return (
     <div className="explore-restaurants" id="explore-restaurants">
       <p className="explore-restaurants-text">Explore Restaurants</p>

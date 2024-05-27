@@ -2,7 +2,7 @@ import React from "react";
 import "./Restaurants.css";
 import ExploreRestaurants from "../../components/ExploreRestaurants/ExploreRestaurants";
 
-const Restaurants = () => {
+const RestaurantsList = () => {
   return (
     <div>
       <ExploreRestaurants />
@@ -10,4 +10,4 @@ const Restaurants = () => {
   );
 };
 
-export default Restaurants;
+export default RestaurantsList;

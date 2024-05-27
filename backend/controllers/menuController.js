@@ -92,4 +92,27 @@ const removeMenuItem = async (req, res) => {
   }
 };
 
-module.exports = { addMenuItem, listMenuItems, removeMenuItem };
+//Menu items per restaurant id
+
+function listMenuItemsByRestaurant(req, res) {
+  const restaurantId = req.params.restaurantId;
+  // Fetch from database, for example:
+  MenuItem.find({ restaurant: restaurantId })
+    .then((menuItems) => {
+      res.json({ success: true, data: menuItems });
+    })
+    .catch((error) => {
+      res.status(500).json({
+        success: false,
+        message: "Error fetching menu items",
+        error: error,
+      });
+    });
+}
+
+module.exports = {
+  addMenuItem,
+  listMenuItems,
+  removeMenuItem,
+  listMenuItemsByRestaurant,
+};

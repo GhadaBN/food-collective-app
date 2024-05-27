@@ -61,7 +61,6 @@ const getRestaurantById = async (req, res) => {
     }
     restaurant.image =
       req.protocol + "://" + req.get("host") + "/uploads/" + restaurant.image;
-
     res.status(200).json({
       success: true,
       message: "Restaurant retrieved successfully",

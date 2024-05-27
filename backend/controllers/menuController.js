@@ -5,7 +5,7 @@ const fs = require("fs").promises;
 
 //add Menu Item
 const addMenuItem = async (req, res) => {
-  let image_filename = `${req.file.filename}`;
+  let image_filename = req.file ? req.file.filename : "default.jpg";
   // Find restaurant by name
   const restaurant = await Restaurant.findOne({
     restaurantName: req.body.restaurantName,
@@ -44,18 +44,20 @@ const addMenuItem = async (req, res) => {
 //Get list of all items
 
 const listMenuItems = async (req, res) => {
+  const { restaurantId } = req.query; // Get restaurantId from query parameters
   try {
-    const allMenuItems = await MenuItem.find().populate("restaurant");
-    res.status(201).json({
+    const query = restaurantId ? { restaurant: restaurantId } : {}; // Filter by restaurantId if provided
+    const menuItems = await MenuItem.find(query).populate("restaurant");
+    res.status(200).json({
       success: true,
-      message: "List menu items retrieved succefully",
-      data: allMenuItems,
+      message: "Menu items retrieved successfully",
+      data: menuItems,
     });
   } catch (error) {
-    console.error("Error retrieving menu items list:", error);
+    console.error("Error retrieving menu items:", error);
     res.status(500).json({
       success: false,
-      message: "Error retrieving menu items list",
+      message: "Error retrieving menu items",
       error: error.message,
     });
   }
@@ -90,4 +92,27 @@ const removeMenuItem = async (req, res) => {
   }
 };
 
-module.exports = { addMenuItem, listMenuItems, removeMenuItem };
+//Menu items per restaurant id
+
+function listMenuItemsByRestaurant(req, res) {
+  const restaurantId = req.params.restaurantId;
+  // Fetch from database, for example:
+  MenuItem.find({ restaurant: restaurantId })
+    .then((menuItems) => {
+      res.json({ success: true, data: menuItems });
+    })
+    .catch((error) => {
+      res.status(500).json({
+        success: false,
+        message: "Error fetching menu items",
+        error: error,
+      });
+    });
+}
+
+module.exports = {
+  addMenuItem,
+  listMenuItems,
+  removeMenuItem,
+  listMenuItemsByRestaurant,
+};

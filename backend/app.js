@@ -1,18 +1,29 @@
+// app.js
+require("dotenv").config();
 const express = require("express");
 const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
-const restaurantRouter = require("./routes/restaurant.route");
-const menuRouter = require("./routes/menu.route");
-
-require("dotenv").config();
+const restaurantRouter = require("./routes/restaurant.routes");
+const menuRouter = require("./routes/menu.routes");
+const userRouter = require("./routes/user.routes");
+const indexRoutes = require("./routes/index.routes");
+const authRoutes = require("./routes/auth.routes");
 
 // Initialize Express App
 const app = express();
 
-// Middleware
-require("./config")(app); // Assuming this configures additional middleware
-app.use(cors({ origin: [process.env.ORIGIN] }));
+// Middleware configuration
+require("./config")(app);
+app.use(
+  cors({
+    origin: "http://localhost:5173", // Specific origin
+    credentials: true, // to allow cookies to be shared between backend and frontend
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    preflightContinue: false,
+    optionsSuccessStatus: 204,
+  })
+);
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(morgan("dev"));
@@ -23,23 +34,22 @@ app.use(cookieParser());
 const connectDB = require("./db/db");
 connectDB();
 
-//API Endpoints
+// API Endpoints
 app.use("/api/restaurant", restaurantRouter);
 app.use("/api/menu", menuRouter);
+app.use("/api/user", userRouter);
 app.use("/images", express.static("uploads"));
 
-// Routes
+// Additional Routes
 app.use("/docs", (req, res) => {
   res.sendFile(__dirname + "/views/docs.html");
 });
-
-const indexRoutes = require("./routes/index.routes");
 app.use("/api", indexRoutes);
-
-const authRoutes = require("./routes/auth.routes");
 app.use("/auth", authRoutes);
 
 // Fallback route for undefined routes
-require("./error-handling/error-handling")(app);
+app.use((req, res) => {
+  res.status(404).json({ message: "This route does not exist" });
+});
 
 module.exports = app;

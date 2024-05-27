@@ -23,6 +23,6 @@ restaurantRouter.post("/add", upload.single("image"), addRestaurant);
 restaurantRouter.get("/list", listRestaurants);
 restaurantRouter.post("/remove", removeRestaurant);
 //Get restaurant by Id
-restaurantRouter.get("/restaurant/:id", getRestaurantById);
+restaurantRouter.get("/:id", getRestaurantById);
 
 module.exports = restaurantRouter;

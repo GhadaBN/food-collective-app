@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import MenuDisplay from "../../components/MenuDisplay/MenuDisplay"; // Corrected import path
+import MenuDisplay from "../../components/MenuDisplay/MenuDisplay";
 
 function RestaurantDetails() {
   const [restaurant, setRestaurant] = useState({});
@@ -26,7 +26,10 @@ function RestaurantDetails() {
       .catch((err) => console.log("Error fetching restaurant:", err));
 
     // Fetch menu items for this restaurant
+    console.log(`${url}/images/${restaurant.image}`);
+
     axios
+
       .get(`${url}/api/menu/list/${restaurantId}`)
       .then((resp) => {
         if (resp.data.success) {
@@ -53,7 +56,7 @@ function RestaurantDetails() {
           </p>
         </div>
       )}
-      <MenuDisplay items={menuItems} baseUrl={url} />{" "}
+      <MenuDisplay items={menuItems} baseUrl={url} />
     </div>
   );
 }

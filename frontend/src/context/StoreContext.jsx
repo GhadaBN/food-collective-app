@@ -10,9 +10,9 @@ const StoreContextProvider = ({ children }) => {
     return localData ? JSON.parse(localData) : {};
   });
   const [menuItems, setMenuItems] = useState([]);
+  const [restaurants, setRestaurants] = useState([]);
   const url = "http://localhost:5005";
   const [token, setToken] = useState(localStorage.getItem("token") || "");
-  const [restaurants, setRestaurants] = useState([]);
 
   useEffect(() => {
     const fetchMenuItems = async () => {
@@ -57,6 +57,17 @@ const StoreContextProvider = ({ children }) => {
     });
   };
 
+  const getTotalCartAmount = () => {
+    let totalAmount = 0;
+    for (const itemId in cartItems) {
+      const itemInfo = menuItems.find((item) => item._id === itemId);
+      if (itemInfo) {
+        totalAmount += itemInfo.price * cartItems[itemId];
+      }
+    }
+    return totalAmount;
+  };
+
   useEffect(() => {
     console.log(cartItems);
   }, [cartItems]);
@@ -70,6 +81,7 @@ const StoreContextProvider = ({ children }) => {
     url,
     token,
     setToken,
+    getTotalCartAmount,
   };
 
   return (

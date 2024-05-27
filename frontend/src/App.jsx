@@ -7,6 +7,7 @@ import OurStory from "./pages/OurStory/OurStory";
 import LoginPopup from "./components/LoginPopup/LoginPopup";
 import RestaurantsList from "./pages/RestaurantsList";
 import RestaurantDetails from "./pages/RestaurantsList/RestaurantDetails";
+import PlaceOrder from "./pages/PlaceOrder/PlaceOrder";
 const App = () => {
   const [showLogin, setShowLogin] = useState(false);
 
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="/cart" element={<Cart />} />
           <Route path="/our-story" element={<OurStory />} />
           <Route path="/restaurants" element={<RestaurantsList />} />
+          <Route path="/order" element={<PlaceOrder />} />
           <Route
             path="/restaurants/:restaurantId"
             element={<RestaurantDetails />}

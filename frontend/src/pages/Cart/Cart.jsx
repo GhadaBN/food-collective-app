@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 import "./Cart.css";
 import { StoreContext } from "../../context/StoreContext";
+import { Link } from "react-router-dom";
 
 function Cart() {
-  const { cartItems, removeFromCart, menuItems, url } =
+  const { cartItems, removeFromCart, menuItems, url, getTotalCartAmount } =
     useContext(StoreContext);
 
   return (
@@ -23,8 +24,8 @@ function Cart() {
           {Object.entries(cartItems).map(([itemId, quantity]) => {
             const item = menuItems.find((item) => item._id === itemId);
             return item ? (
-              <div>
-                <div key={itemId} className="cart-item">
+              <div key={itemId}>
+                <div className="cart-item">
                   <img
                     src={`${url}/images/${item.image}`}
                     className="cart-item-image"
@@ -53,15 +54,21 @@ function Cart() {
 
           <div className="cart-total-details">
             <p>Subtotal</p>
-            <p>{0}</p>
+            <p>€{getTotalCartAmount()}</p>
           </div>
           <hr />
           <div className="cart-total-details">
-            <b>Total</b>
-            <b>{0}</b>
+            <p>Delivery Fees</p>
+            <p>€{getTotalCartAmount() === 0 ? "" : "3"}</p>
           </div>
+          <div className="cart-total-details">
+            <b>Total</b>
+            <b>€{getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 3}</b>
+          </div>
+          <Link to="/order">
+            <button>PROCEED TO CHECKOUT</button>
+          </Link>
         </div>
-        <button>PROCEED TO CHECKOUT</button>
       </div>
     </>
   );

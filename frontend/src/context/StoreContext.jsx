@@ -57,6 +57,17 @@ const StoreContextProvider = ({ children }) => {
     });
   };
 
+  const getTotalCartAmount = () => {
+    let totalAmount = 0;
+    for (const itemId in cartItems) {
+      const itemInfo = menuItems.find((item) => item._id === itemId);
+      if (itemInfo) {
+        totalAmount += itemInfo.price * cartItems[itemId];
+      }
+    }
+    return totalAmount;
+  };
+
   useEffect(() => {
     console.log(cartItems);
   }, [cartItems]);
@@ -70,6 +81,7 @@ const StoreContextProvider = ({ children }) => {
     url,
     token,
     setToken,
+    getTotalCartAmount,
   };
 
   return (

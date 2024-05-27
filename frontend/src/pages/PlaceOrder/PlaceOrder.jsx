@@ -31,11 +31,11 @@ function PlaceOrder() {
           <hr />
           <div className="cart-total-details">
             <p>Delivery Fees</p>
-            <p>€{2}</p>
+            <p>€{getTotalCartAmount() === 0 ? "" : "3"}</p>
           </div>
           <div className="cart-total-details">
             <b>Total</b>
-            <b>€{getTotalCartAmount() + 2}</b>
+            <b>€{getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 3}</b>
           </div>
 
           <button>PROCEED TO PAP</button>

@@ -4,7 +4,7 @@ import MenuItem from "./MenuItem";
 
 function MenuDisplay({ items, baseUrl }) {
   return (
-    <div className="menu-items">
+    <div className="menu-display">
       {items.map((item) => (
         <MenuItem key={item._id} item={item} baseUrl={baseUrl} />
       ))}

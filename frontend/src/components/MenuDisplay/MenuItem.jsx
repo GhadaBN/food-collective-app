@@ -1,24 +1,28 @@
-// src/components/MenuItem.js
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { assets } from "../../assets/assets";
 import "./MenuItem.css";
+import { StoreContext } from "../../context/StoreContext";
 
 function MenuItem({ item, baseUrl }) {
-  const [itemCount, setItemCount] = useState(0);
-
+  const { cartItems, addToCart, removeFromCart } = useContext(StoreContext);
+  const itemId = item._id;
   return (
     <div className="menu-item-container">
-      <img src={`${baseUrl}/images/${item.image}`} alt={item.itemName} />
-      {itemCount === 0 ? (
+      <img src={`${baseUrl}/images/${item.image}`} />
+      {!cartItems[itemId] ? (
         <img
-          src={assets.add_icon_white}
-          onClick={() => setItemCount(itemCount + 1)}
           className="add"
+          onClick={() => addToCart(itemId)}
+          src={assets.add_icon_white}
         />
       ) : (
         <div className="item-counter">
-          <img src={assets.add_icon_green} alt="Added" />
-          <span>{itemCount}</span>
+          <img
+            onClick={() => removeFromCart(itemId)}
+            src={assets.remove_icon_red}
+          />
+          <p>{cartItems[itemId]}</p>
+          <img onClick={() => addToCart(itemId)} src={assets.add_icon_green} />
         </div>
       )}
       <p className="item-name">{item.itemName}</p>

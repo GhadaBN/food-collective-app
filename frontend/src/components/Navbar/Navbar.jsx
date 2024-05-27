@@ -10,7 +10,9 @@ function Navbar({ setShowLogin }) {
   return (
     <div className="navbar">
       <div className="logo">
-        <img src={assets.logo} alt="" className="logo" />
+        <Link to="/">
+          <img src={assets.logo} alt="" className="logo" />
+        </Link>
       </div>
       <ul className="navbar-menu">
         <li className={menu === "home" ? "active" : ""}>
@@ -39,7 +41,9 @@ function Navbar({ setShowLogin }) {
       </ul>
       <div className="navbar-right">
         <div className="basket-container">
-          <img src={assets.basket_icon} className="basket-icon" />
+          <Link to="/cart">
+            <img src={assets.basket_icon} className="basket-icon" />
+          </Link>
           <div className="dot"></div>
         </div>
         <img

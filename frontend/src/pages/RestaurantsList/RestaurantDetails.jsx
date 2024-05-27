@@ -54,7 +54,6 @@ function RestaurantDetails() {
         </div>
       )}
       <MenuDisplay items={menuItems} baseUrl={url} />{" "}
-      {/* Use the renamed component */}
     </div>
   );
 }

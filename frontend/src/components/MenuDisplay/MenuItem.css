@@ -1,0 +1,27 @@
+.menu-item-container {
+  position: relative;
+  width: 35%;
+}
+.add {
+  width: 35px;
+  position: absolute;
+  bottom: 20%;
+  right: 10%;
+  cursor: pointer;
+  border-radius: 50%;
+}
+.item-counter {
+  position: absolute;
+  bottom: 20%;
+  right: 10%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 50px;
+  background: white;
+  padding: 6px;
+}
+.item-counter img {
+  width: 30px;
+}

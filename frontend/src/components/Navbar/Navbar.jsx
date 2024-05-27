@@ -2,33 +2,39 @@ import React, { useState } from "react";
 import "./Navbar.css";
 import { assets } from "../../assets/assets";
 import { StoreContext } from "../../context/StoreContext";
+import { Link } from "react-router-dom";
 
 function Navbar({ setShowLogin }) {
   const [menu, setMenu] = useState("home");
-  // const { token, setToken } = useContext(StoreContext);
+
   return (
     <div className="navbar">
       <div className="logo">
         <img src={assets.logo} alt="" className="logo" />
       </div>
       <ul className="navbar-menu">
-        <li
-          onClick={() => setMenu("home")}
-          className={menu === "home" ? "active" : ""}
-        >
-          HOME
+        <li className={menu === "home" ? "active" : ""}>
+          <Link to="/" onClick={() => setMenu("home")} className="nav-link">
+            HOME
+          </Link>
         </li>
-        <li
-          onClick={() => setMenu("restaurants")}
-          className={menu === "restaurants" ? "active" : ""}
-        >
-          RESTAURANTS
+        <li className={menu === "restaurants" ? "active" : ""}>
+          <Link
+            to="/restaurants"
+            onClick={() => setMenu("restaurants")}
+            className="nav-link"
+          >
+            RESTAURANTS
+          </Link>
         </li>
-        <li
-          onClick={() => setMenu("our-story")}
-          className={menu === "our-story" ? "active" : ""}
-        >
-          OUR STORY
+        <li className={menu === "our-story" ? "active" : ""}>
+          <Link
+            to="/our-story"
+            onClick={() => setMenu("our-story")}
+            className="nav-link"
+          >
+            OUR STORY
+          </Link>
         </li>
       </ul>
       <div className="navbar-right">

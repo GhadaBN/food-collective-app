@@ -38,23 +38,52 @@ const StoreContextProvider = ({ children }) => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }, [cartItems]);
 
-  const addToCart = (itemId) => {
-    setCartItems((prev) => ({
-      ...prev,
-      [itemId]: (prev[itemId] || 0) + 1,
-    }));
+  const addToCart = async (itemId) => {
+    setCartItems((prev) => {
+      const newCartItems = { ...prev };
+      if (!newCartItems[itemId]) {
+        newCartItems[itemId] = 1;
+      } else {
+        newCartItems[itemId] += 1;
+      }
+      return newCartItems;
+    });
+
+    if (token) {
+      try {
+        await axios.post(
+          `${url}/api/cart/add`,
+          { itemId, quantity: 1 },
+          { headers: { Authorization: `Bearer ${token}` } }
+        );
+      } catch (error) {
+        console.error("Failed to update the cart on the server", error);
+      }
+    }
   };
 
-  const removeFromCart = (itemId) => {
+  const removeFromCart = async (itemId) => {
     setCartItems((prev) => {
-      if (prev[itemId] > 1) {
-        return { ...prev, [itemId]: prev[itemId] - 1 };
+      const updatedItems = { ...prev };
+      if (updatedItems[itemId] > 1) {
+        updatedItems[itemId] -= 1;
       } else {
-        const updatedItems = { ...prev };
         delete updatedItems[itemId];
-        return updatedItems;
       }
+      return updatedItems;
     });
+
+    if (token) {
+      try {
+        await axios.post(
+          `${url}/api/cart/remove`,
+          { itemId },
+          { headers: { Authorization: `Bearer ${token}` } }
+        );
+      } catch (error) {
+        console.error("Failed to update the cart on the server", error);
+      }
+    }
   };
 
   const getTotalCartAmount = () => {

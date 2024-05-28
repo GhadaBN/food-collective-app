@@ -1,33 +1,66 @@
 const User = require("../models/User.model");
 
 // Add or update an item in the cart
+// const addToCart = async (req, res) => {
+//   const userId = req.payload._id;
+
+//   const { itemId, quantity } = req.body;
+
+//   // console.log("Add to cart request:", { userId, itemId, quantity });
+
+//   if (typeof quantity !== "number" || quantity <= 0) {
+//     return res.status(400).json({ message: "Invalid quantity" });
+//   }
+
+//   try {
+//     let user = await User.findByIdAndUpdate(
+//       userId,
+//       {
+//         $push: {
+//           cartData: {
+//             itemId: itemId,
+//             quantity: quantity,
+//           },
+//         },
+//       },
+//       { new: true }
+//     );
+
+//     console.log("Updated user cartData/add:", user.cartData);
+//     res.status(200).json(user.cartData);
+//   } catch (error) {
+//     console.error("Error adding to cart:", error);
+//     res.status(500).json({ message: "Error adding to cart", error });
+//   }
+// };
+
 const addToCart = async (req, res) => {
   const userId = req.payload._id;
-  console.log(req.payload);
-  console.log(userId, "user");
-
   const { itemId, quantity } = req.body;
-
-  // console.log("Add to cart request:", { userId, itemId, quantity });
 
   if (typeof quantity !== "number" || quantity <= 0) {
     return res.status(400).json({ message: "Invalid quantity" });
   }
 
   try {
-    let user = await User.findByIdAndUpdate(
-      userId,
-      {
-        $push: {
-          cartData: {
-            itemId: itemId,
-            quantity: quantity,
-          },
-        },
-      },
-      { new: true }
-    );
+    let user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
 
+    // Check if the item already exists in the cart
+    const cartItemIndex = user.cartData.findIndex(
+      (item) => item.itemId === itemId
+    );
+    if (cartItemIndex > -1) {
+      // Item exists in the cart, update the quantity
+      user.cartData[cartItemIndex].quantity += quantity;
+    } else {
+      // Item does not exist in the cart, add new item
+      user.cartData.push({ itemId, quantity });
+    }
+
+    await user.save();
     console.log("Updated user cartData/add:", user.cartData);
     res.status(200).json(user.cartData);
   } catch (error) {

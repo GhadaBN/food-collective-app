@@ -44,19 +44,33 @@ const removeFromCart = async (req, res) => {
   console.log("Remove from cart request:", { userId, itemId });
 
   try {
-    let user = await User.findByIdAndUpdate(
-      userId,
-      {
-        $pull: {
-          cartData: { itemId: itemId },
-        },
-      },
-      { new: true }
-    );
-
+    let user = await User.findById(userId);
     if (!user) {
       console.error("User not found:", userId);
       return res.status(404).json({ message: "User not found" });
+    }
+
+    const cartItem = user.cartData.find((item) => item.itemId === itemId);
+    if (!cartItem) {
+      return res.status(404).json({ message: "Item not found in cart" });
+    }
+
+    cartItem.quantity -= 1;
+
+    if (cartItem.quantity > 0) {
+      // If quantity is greater than zero, save the updated user data
+      await user.save();
+    } else {
+      // If quantity is zero or less, remove the item from the cart
+      await User.findByIdAndUpdate(
+        userId,
+        {
+          $pull: {
+            cartData: { itemId: itemId },
+          },
+        },
+        { new: true }
+      );
     }
 
     console.log("Updated user cartData:", user.cartData);

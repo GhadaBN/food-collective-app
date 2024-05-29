@@ -5,7 +5,6 @@ export const StoreContext = createContext();
 
 const StoreContextProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState(() => {
-    // Retrieve cart items from localStorage on initial load
     const localData = localStorage.getItem("cartItems");
     return localData ? JSON.parse(localData) : {};
   });
@@ -28,11 +27,22 @@ const StoreContextProvider = ({ children }) => {
 
   useEffect(() => {
     const fetchRestaurantList = async () => {
-      const response = await axios.get(`${url}/api/restaurant/list`);
-      setRestaurants(response.data.data);
+      try {
+        const response = await axios.get(`${url}/api/restaurant/list`);
+        const restaurantsWithFullImageUrl = response.data.data.map(
+          (restaurant) => ({
+            ...restaurant,
+            image: `${url}/images/${restaurant.image}`,
+          })
+        );
+        setRestaurants(restaurantsWithFullImageUrl);
+        console.log("Fetched Restaurants:", restaurantsWithFullImageUrl);
+      } catch (error) {
+        console.error("Failed to fetch restaurant list:", error);
+      }
     };
     fetchRestaurantList();
-  }, []);
+  }, [url]);
 
   useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));

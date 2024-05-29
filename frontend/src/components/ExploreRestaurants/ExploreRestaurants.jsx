@@ -6,7 +6,7 @@ import { StoreContext } from "../../context/StoreContext";
 const ExploreRestaurants = () => {
   const { restaurants } = useContext(StoreContext);
   const navigate = useNavigate();
-  const url = "http://localhost:5005";
+
   const handleRestaurantClick = (restaurant) => {
     navigate(`/restaurants/${restaurant._id}`, { state: { restaurant } });
   };
@@ -21,16 +21,12 @@ const ExploreRestaurants = () => {
             className="restaurant"
             onClick={() => handleRestaurantClick(restaurant)}
           >
-            <img
-              src={`${url}/images/${restaurant.image}`}
-              alt={restaurant.restaurantName}
-            />
+            <img src={restaurant.image} alt={restaurant.restaurantName} />
             <p>{restaurant.restaurantName}</p>
-            <p>{restaurant.description}</p> // Displaying the description
+            <p>{restaurant.description}</p>
             <p>
               <b>Category:</b> {restaurant.category}
-            </p>{" "}
-            // Displaying the category
+            </p>
           </div>
         ))}
       </div>

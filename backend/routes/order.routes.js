@@ -1,9 +1,9 @@
 const express = require("express");
-const { placeOrder } = require("../controllers/orderController");
+const { placeOrder, verifyOrder } = require("../controllers/orderController");
 const { isAuthenticated } = require("../middleware/isAuthenticated");
 
 const orderRouter = express.Router();
 
 orderRouter.post("/place", isAuthenticated, placeOrder);
-
+orderRouter.post("/verify", verifyOrder);
 module.exports = orderRouter;

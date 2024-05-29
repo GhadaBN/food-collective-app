@@ -1,35 +1,40 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { StoreContext } from "../../context/StoreContext";
 import MenuDisplay from "../../components/MenuDisplay/MenuDisplay";
+import axios from "axios";
 
 function RestaurantDetails() {
+  const { restaurants, url } = useContext(StoreContext);
   const [restaurant, setRestaurant] = useState({});
   const [menuItems, setMenuItems] = useState([]);
   const { restaurantId } = useParams();
-  const url = "http://localhost:5005";
 
   useEffect(() => {
-    // Fetch restaurant details
-    axios
-      .get(`${url}/api/restaurant/${restaurantId}`)
-      .then((resp) => {
-        if (resp.data.success) {
-          setRestaurant(resp.data.data);
-        } else {
-          console.error(
-            "Failed to fetch restaurant details:",
-            resp.data.message
-          );
-        }
-      })
-      .catch((err) => console.log("Error fetching restaurant:", err));
+    const restaurantData = restaurants.find((r) => r._id === restaurantId);
+    if (restaurantData) {
+      setRestaurant(restaurantData);
+    } else {
+      // Fetch restaurant details if not found in context
+      axios
+        .get(`${url}/api/restaurant/${restaurantId}`)
+        .then((resp) => {
+          if (resp.data.success) {
+            const fetchedRestaurant = resp.data.data;
+            fetchedRestaurant.image = `${url}/images/${fetchedRestaurant.image}`;
+            setRestaurant(fetchedRestaurant);
+          } else {
+            console.error(
+              "Failed to fetch restaurant details:",
+              resp.data.message
+            );
+          }
+        })
+        .catch((err) => console.log("Error fetching restaurant:", err));
+    }
 
     // Fetch menu items for this restaurant
-    console.log(`${url}/images/${restaurant.image}`);
-
     axios
-
       .get(`${url}/api/menu/list/${restaurantId}`)
       .then((resp) => {
         if (resp.data.success) {
@@ -39,16 +44,13 @@ function RestaurantDetails() {
         }
       })
       .catch((err) => console.log("Error fetching menu items:", err));
-  }, [restaurantId]);
+  }, [restaurantId, restaurants, url]);
 
   return (
     <div>
       {restaurant && (
         <div className="restaurant-header">
-          <img
-            src={`${url}/images/${restaurant.image}`}
-            alt={restaurant.restaurantName}
-          />
+          <img src={restaurant.image} alt={restaurant.restaurantName} />
           <h1>{restaurant.restaurantName}</h1>
           <p>{restaurant.description}</p>
           <p>

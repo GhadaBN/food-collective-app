@@ -32,12 +32,14 @@ app.use(cookieParser());
 
 // Database connection
 const connectDB = require("./db/db");
+const cartRouter = require("./routes/cart.routes");
 connectDB();
 
 // API Endpoints
 app.use("/api/restaurant", restaurantRouter);
 app.use("/api/menu", menuRouter);
 app.use("/api/user", userRouter);
+app.use("/api/cart", cartRouter);
 app.use("/images", express.static("uploads"));
 
 // Additional Routes

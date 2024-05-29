@@ -23,11 +23,10 @@ const ExploreRestaurants = () => {
           >
             <img src={restaurant.image} alt={restaurant.restaurantName} />
             <p>{restaurant.restaurantName}</p>
-            <p>{restaurant.description}</p> // Displaying the description
+            <p>{restaurant.description}</p>
             <p>
               <b>Category:</b> {restaurant.category}
-            </p>{" "}
-            // Displaying the category
+            </p>
           </div>
         ))}
       </div>

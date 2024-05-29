@@ -17,8 +17,16 @@ const userSchema = new Schema(
       type: String,
       required: [true, "Password is required."],
     },
-
-    cartData: { type: Object, default: {} },
+    cartData: [
+      {
+        itemId: {
+          type: String,
+        },
+        quantity: {
+          type: Number,
+        },
+      },
+    ],
   },
   { minimize: false }
 );

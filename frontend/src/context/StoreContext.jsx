@@ -5,14 +5,13 @@ export const StoreContext = createContext();
 
 const StoreContextProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState(() => {
-    // Retrieve cart items from localStorage on initial load
     const localData = localStorage.getItem("cartItems");
     return localData ? JSON.parse(localData) : {};
   });
   const [menuItems, setMenuItems] = useState([]);
+  const [restaurants, setRestaurants] = useState([]);
   const url = "http://localhost:5005";
   const [token, setToken] = useState(localStorage.getItem("token") || "");
-  const [restaurants, setRestaurants] = useState([]);
 
   useEffect(() => {
     const fetchMenuItems = async () => {
@@ -28,33 +27,84 @@ const StoreContextProvider = ({ children }) => {
 
   useEffect(() => {
     const fetchRestaurantList = async () => {
-      const response = await axios.get(`${url}/api/restaurant/list`);
-      setRestaurants(response.data.data);
+      try {
+        const response = await axios.get(`${url}/api/restaurant/list`);
+        const restaurantsWithFullImageUrl = response.data.data.map(
+          (restaurant) => ({
+            ...restaurant,
+            image: `${url}/images/${restaurant.image}`,
+          })
+        );
+        setRestaurants(restaurantsWithFullImageUrl);
+        console.log("Fetched Restaurants:", restaurantsWithFullImageUrl);
+      } catch (error) {
+        console.error("Failed to fetch restaurant list:", error);
+      }
     };
     fetchRestaurantList();
-  }, []);
+  }, [url]);
 
   useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }, [cartItems]);
 
-  const addToCart = (itemId) => {
-    setCartItems((prev) => ({
-      ...prev,
-      [itemId]: (prev[itemId] || 0) + 1,
-    }));
+  const addToCart = async (itemId) => {
+    setCartItems((prev) => {
+      const newCartItems = { ...prev };
+      if (!newCartItems[itemId]) {
+        newCartItems[itemId] = 1;
+      } else {
+        newCartItems[itemId] += 1;
+      }
+      return newCartItems;
+    });
+
+    if (token) {
+      try {
+        await axios.post(
+          `${url}/api/cart/add`,
+          { itemId, quantity: 1 },
+          { headers: { Authorization: `Bearer ${token}` } }
+        );
+      } catch (error) {
+        console.error("Failed to update the cart on the server", error);
+      }
+    }
   };
 
-  const removeFromCart = (itemId) => {
+  const removeFromCart = async (itemId) => {
     setCartItems((prev) => {
-      if (prev[itemId] > 1) {
-        return { ...prev, [itemId]: prev[itemId] - 1 };
+      const updatedItems = { ...prev };
+      if (updatedItems[itemId] > 1) {
+        updatedItems[itemId] -= 1;
       } else {
-        const updatedItems = { ...prev };
         delete updatedItems[itemId];
-        return updatedItems;
       }
+      return updatedItems;
     });
+
+    if (token) {
+      try {
+        await axios.post(
+          `${url}/api/cart/remove`,
+          { itemId },
+          { headers: { Authorization: `Bearer ${token}` } }
+        );
+      } catch (error) {
+        console.error("Failed to update the cart on the server", error);
+      }
+    }
+  };
+
+  const getTotalCartAmount = () => {
+    let totalAmount = 0;
+    for (const itemId in cartItems) {
+      const itemInfo = menuItems.find((item) => item._id === itemId);
+      if (itemInfo) {
+        totalAmount += itemInfo.price * cartItems[itemId];
+      }
+    }
+    return totalAmount;
   };
 
   useEffect(() => {
@@ -70,6 +120,7 @@ const StoreContextProvider = ({ children }) => {
     url,
     token,
     setToken,
+    getTotalCartAmount,
   };
 
   return (

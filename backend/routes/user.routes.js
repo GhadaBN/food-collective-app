@@ -1,4 +1,3 @@
-// user.routes.js
 const express = require("express");
 const User = require("../models/User.model");
 const { isAuthenticated } = require("../middleware/isAuthenticated");

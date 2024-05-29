@@ -5,13 +5,24 @@ export const StoreContext = createContext();
 
 const StoreContextProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState(() => {
-    const localData = localStorage.getItem("cartItems");
-    return localData ? JSON.parse(localData) : {};
+    try {
+      const localData = localStorage.getItem("cartItems");
+      return localData ? JSON.parse(localData) : {};
+    } catch (error) {
+      console.error("Failed to parse local storage data", error);
+      return {};
+    }
   });
+
   const [menuItems, setMenuItems] = useState([]);
   const [restaurants, setRestaurants] = useState([]);
   const url = "http://localhost:5005";
-  const [token, setToken] = useState(localStorage.getItem("token") || "");
+  const [token, setToken] = useState(() => localStorage.getItem("token") || "");
+
+  // Save token to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem("token", token);
+  }, [token]);
 
   useEffect(() => {
     const fetchMenuItems = async () => {
@@ -36,13 +47,42 @@ const StoreContextProvider = ({ children }) => {
           })
         );
         setRestaurants(restaurantsWithFullImageUrl);
-        console.log("Fetched Restaurants:", restaurantsWithFullImageUrl);
       } catch (error) {
         console.error("Failed to fetch restaurant list:", error);
       }
     };
     fetchRestaurantList();
   }, [url]);
+
+  useEffect(() => {
+    const loadCartData = async () => {
+      if (token) {
+        try {
+          const response = await axios.post(
+            `${url}/api/cart/get`,
+            {},
+            { headers: { Authorization: `Bearer ${token}` } }
+          );
+          if (Array.isArray(response.data)) {
+            const cartData = response.data.reduce((acc, item) => {
+              acc[item.itemId] = item.quantity;
+              return acc;
+            }, {});
+            setCartItems(cartData);
+          } else {
+            setCartItems({});
+          }
+        } catch (error) {
+          console.error("Failed to load cart data from server", error);
+          setCartItems({});
+        }
+      } else {
+        const localData = localStorage.getItem("cartItems");
+        setCartItems(localData ? JSON.parse(localData) : {});
+      }
+    };
+    loadCartData();
+  }, [token, url]);
 
   useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
@@ -106,10 +146,6 @@ const StoreContextProvider = ({ children }) => {
     }
     return totalAmount;
   };
-
-  useEffect(() => {
-    console.log(cartItems);
-  }, [cartItems]);
 
   const contextValue = {
     cartItems,

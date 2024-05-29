@@ -9,6 +9,7 @@ const menuRouter = require("./routes/menu.routes");
 const userRouter = require("./routes/user.routes");
 const indexRoutes = require("./routes/index.routes");
 const authRoutes = require("./routes/auth.routes");
+const orderRouter = require("./routes/order.routes.js");
 
 // Initialize Express App
 const app = express();
@@ -36,11 +37,12 @@ const cartRouter = require("./routes/cart.routes");
 connectDB();
 
 // API Endpoints
+app.use("/images", express.static("uploads"));
 app.use("/api/restaurant", restaurantRouter);
 app.use("/api/menu", menuRouter);
 app.use("/api/user", userRouter);
 app.use("/api/cart", cartRouter);
-app.use("/images", express.static("uploads"));
+app.use("/api/order", orderRouter);
 
 // Additional Routes
 app.use("/docs", (req, res) => {

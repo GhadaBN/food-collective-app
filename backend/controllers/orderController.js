@@ -1,6 +1,6 @@
 const OrderModel = require("../models/Order.model");
 const User = require("../models/User.model");
-const MenuItem = require("../models/Menu.model"); // Correct path to your MenuItem model
+const MenuItem = require("../models/Menu.model");
 const Stripe = require("stripe");
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
@@ -33,7 +33,7 @@ const placeOrder = async (req, res) => {
           const menuItem = await MenuItem.findById(item.itemId).select(
             "itemName"
           );
-          item.name = menuItem ? menuItem.itemName : "Unknown Item"; // Set a default name if not found
+          item.name = menuItem ? menuItem.itemName : "Unknown Item";
         }
         return item;
       })
@@ -111,4 +111,17 @@ const verifyOrder = async (req, res) => {
   }
 };
 
-module.exports = { placeOrder, verifyOrder };
+// use orders for frontend
+const userOrders = async (req, res) => {
+  try {
+    const orders = await OrderModel.find({ userId: req.payload._id });
+    res.json({ success: true, data: orders });
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: "Error" });
+  }
+};
+
+module.exports = { userOrders };
+
+module.exports = { placeOrder, verifyOrder, userOrders };

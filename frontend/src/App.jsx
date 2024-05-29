@@ -8,6 +8,8 @@ import LoginPopup from "./components/LoginPopup/LoginPopup";
 import RestaurantsList from "./pages/RestaurantsList";
 import RestaurantDetails from "./pages/RestaurantsList/RestaurantDetails";
 import PlaceOrder from "./pages/PlaceOrder/PlaceOrder";
+import Verify from "./pages/Verify/Verify";
+import MyOrders from "./pages/MyOrders/MyOrders";
 const App = () => {
   const [showLogin, setShowLogin] = useState(false);
 
@@ -26,6 +28,8 @@ const App = () => {
             path="/restaurants/:restaurantId"
             element={<RestaurantDetails />}
           />
+          <Route path="/verify" element={<Verify />} />
+          <Route path="/myorders" element={<MyOrders />} />
         </Routes>
       </div>
     </>

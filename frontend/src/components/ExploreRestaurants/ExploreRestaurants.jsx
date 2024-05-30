@@ -23,10 +23,8 @@ const ExploreRestaurants = () => {
           >
             <img src={restaurant.image} alt={restaurant.restaurantName} />
             <button className="button">{restaurant.restaurantName}</button>
-            <p className="text">{restaurant.description}</p>
-            <p>
-              <b>Category:</b> {restaurant.category}
-            </p>
+            {/* <p className="text">{restaurant.description}</p> */}
+            <p className="category">{restaurant.category}</p>
           </div>
         ))}
       </div>

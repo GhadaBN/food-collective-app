@@ -22,11 +22,19 @@
 
 .header-img {
   margin: auto;
-  width: 100%;
+  width: 98%;
   height: auto;
   object-fit: contain;
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+.sticker {
+  position: absolute;
+  top: 50%;
+  left: 78%;
+  z-index: 100;
+  width: 300px;
 }

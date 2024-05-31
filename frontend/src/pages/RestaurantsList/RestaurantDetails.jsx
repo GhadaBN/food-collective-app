@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { StoreContext } from "../../context/StoreContext";
 import MenuDisplay from "../../components/MenuDisplay/MenuDisplay";
 import axios from "axios";
+import "./Restaurants.css";
 
 function RestaurantDetails() {
   const { restaurants, url } = useContext(StoreContext);
@@ -47,18 +48,20 @@ function RestaurantDetails() {
   }, [restaurantId, restaurants, url]);
 
   return (
-    <div>
+    <div className="restaurant-details-container">
       {restaurant && (
         <div className="restaurant-header">
-          <img src={restaurant.image} alt={restaurant.restaurantName} />
-          <h1>{restaurant.restaurantName}</h1>
-          <p>{restaurant.description}</p>
-          <p>
-            <b>Category:</b> {restaurant.category}
-          </p>
+          <h1 className="restaurant-name">{restaurant.restaurantName}</h1>
+          <div className="image-container">
+            <img src={restaurant.image} />
+          </div>
+          <p className="description">{restaurant.description}</p>
+          <p> {restaurant.category}</p>
         </div>
       )}
-      <MenuDisplay items={menuItems} baseUrl={url} />
+      <div className="menu-container">
+        <MenuDisplay items={menuItems} baseUrl={url} />
+      </div>
     </div>
   );
 }

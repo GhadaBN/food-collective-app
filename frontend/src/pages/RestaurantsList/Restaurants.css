@@ -1,1 +1,71 @@
+.restaurant-details-container {
+  margin: 0.3rem auto;
+  width: 100%;
+  height: 88vh;
+  display: flex;
+  justify-content: space-between;
+  border: 3px solid black;
+  border-radius: 20px;
+  overflow: hidden;
+}
 
+.restaurant-header {
+  min-width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  border-right: 3px solid black;
+  background-color: #eebdbe;
+}
+.menu-container {
+  min-width: 50%;
+}
+
+.restaurant-name {
+  font-family: "Baking-Sauce";
+  letter-spacing: -2px;
+  line-height: 4.5rem;
+  font-size: 3.5rem;
+  color: #fc0230;
+  text-shadow: -5px 5px 0px black;
+  text-transform: uppercase;
+  -webkit-text-stroke: 0.2px black;
+  margin-bottom: 1rem;
+  text-align: center;
+  top: 2%;
+}
+
+.image-container {
+  width: 300px;
+  height: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border: 2px solid black;
+  margin-bottom: 1rem;
+}
+
+.restaurant-header img {
+  height: auto;
+  width: 100%;
+  object-fit: cover;
+}
+
+.restaurant-header .description {
+  padding: 5px 10px;
+  border-radius: 25px;
+  border: solid 2px black;
+  background-color: #fc0230;
+  box-shadow: -2px 2px 0px black;
+  font-size: 1.2rem;
+  padding: 5px 20px;
+  position: relative;
+  left: 15%;
+  bottom: 6%;
+}
+
+.menu-container {
+}

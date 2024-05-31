@@ -16,12 +16,18 @@ const StoreContextProvider = ({ children }) => {
 
   const [menuItems, setMenuItems] = useState([]);
   const [restaurants, setRestaurants] = useState([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const url = "http://localhost:5005";
   const [token, setToken] = useState(() => localStorage.getItem("token") || "");
 
   // Save token to localStorage whenever it changes
+  //   useEffect(() => {
+  //     localStorage.setItem("token", token);
+  //   }, [token]);
+  // // Save token to localStorage whenever it changes
   useEffect(() => {
     localStorage.setItem("token", token);
+    setIsLoggedIn(!!token);
   }, [token]);
 
   useEffect(() => {
@@ -157,6 +163,8 @@ const StoreContextProvider = ({ children }) => {
     token,
     setToken,
     getTotalCartAmount,
+    isLoggedIn,
+    setIsLoggedIn,
   };
 
   return (

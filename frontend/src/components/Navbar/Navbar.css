@@ -30,7 +30,7 @@
   display: flex;
   list-style: none;
   gap: 3rem;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 }
 .navbar li {
   cursor: pointer;
@@ -43,6 +43,7 @@
 
 .navbar-right img {
   width: 1.6rem;
+  position: relative;
 }
 .navbar .active {
   padding-bottom: 3px;
@@ -60,4 +61,26 @@
   border-radius: 8px;
   top: 17px;
   right: 17px;
+}
+
+.logout-notification {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: none;
+}
+
+.logout-notification.show {
+  display: block;
+}
+
+.logout-notification p {
+  margin: 0;
+  cursor: pointer;
+  color: #ff1414;
 }

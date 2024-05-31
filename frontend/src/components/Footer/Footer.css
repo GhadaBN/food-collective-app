@@ -1,0 +1,47 @@
+/* .heart_sticker {
+  position: absolute;
+  bottom: 20%;
+  left: 10%;
+  z-index: 100;
+  width: 120px;
+  position: fixed;
+
+  animation: float 7s ease-in-out infinite, shadow-float 7s ease-in-out infinite;
+}
+.footer-button {
+  padding: 10px 25px;
+  border-radius: 50px;
+  border: solid 2px black;
+  background-color: #eebdbe;
+  box-shadow: -8px 8px 0px black;
+  position: absolute;
+  font-size: 1.5rem;
+  bottom: 10%;
+  left: 5%;
+  animation: float 7s ease-in-out infinite, shadow-float 7s ease-in-out infinite;
+  position: fixed;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes shadow-float {
+  0% {
+    filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
+  }
+  50% {
+    filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.1));
+  }
+  100% {
+    filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
+  }
+} */

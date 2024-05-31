@@ -6,7 +6,15 @@ import { Link } from "react-router-dom";
 
 function Navbar({ setShowLogin }) {
   const [menu, setMenu] = useState("home");
-  const { getTotalCartAmount } = useContext(StoreContext);
+  const [showLogout, setShowLogout] = useState(false);
+  const { getTotalCartAmount, isLoggedIn, setToken, setIsLoggedIn } =
+    useContext(StoreContext);
+
+  const handleLogout = () => {
+    setToken("");
+    setIsLoggedIn(false);
+    setShowLogout(false);
+  };
 
   return (
     <div className="navbar">
@@ -19,7 +27,7 @@ function Navbar({ setShowLogin }) {
       <ul className="navbar-menu">
         <li className={menu === "home" ? "active" : ""}>
           <Link to="/" onClick={() => setMenu("home")} className="nav-link">
-            Home
+            HOME
           </Link>
         </li>
         <li className={menu === "restaurants" ? "active" : ""}>
@@ -28,7 +36,7 @@ function Navbar({ setShowLogin }) {
             onClick={() => setMenu("restaurants")}
             className="nav-link"
           >
-            Restaurants
+            RESTAURANTS
           </Link>
         </li>
         <li className={menu === "our-story" ? "active" : ""}>
@@ -37,22 +45,35 @@ function Navbar({ setShowLogin }) {
             onClick={() => setMenu("our-story")}
             className="nav-link"
           >
-            Our Story
+            OUR STORY
           </Link>
         </li>
       </ul>
       <div className="navbar-right">
         <div className="basket-container">
           <Link to="/cart">
-            <img src={assets.basket_icon} className="basket-icon" />
+            <img src={assets.basket_icon} className="basket-icon" alt="Cart" />
           </Link>
           <div className={getTotalCartAmount() === 0 ? "" : "dot"}></div>
         </div>
-        <img
-          onClick={() => setShowLogin(true)}
-          src={assets.user_icon}
-          className="user-icon"
-        />
+        {isLoggedIn ? (
+          <div
+            onClick={() => setShowLogout(!showLogout)}
+            style={{ position: "relative" }}
+          >
+            <img src={assets.user_logged} className="user-icon" alt="User" />
+            <div className={`logout-notification ${showLogout ? "show" : ""}`}>
+              <p onClick={handleLogout}>Logout</p>
+            </div>
+          </div>
+        ) : (
+          <img
+            onClick={() => setShowLogin(true)}
+            src={assets.user_icon}
+            className="user-icon"
+            alt="User"
+          />
+        )}
       </div>
     </div>
   );

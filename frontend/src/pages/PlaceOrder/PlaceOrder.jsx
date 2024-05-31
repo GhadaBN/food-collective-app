@@ -29,7 +29,7 @@ function PlaceOrder() {
     const orderItems = menuItems
       .filter((item) => cartItems[item._id] > 0)
       .map((item) => ({
-        itemId: item._id, // Ensure itemId is included
+        itemId: item._id,
         name: item.name,
         price: item.price,
         quantity: cartItems[item._id],
@@ -62,7 +62,7 @@ function PlaceOrder() {
   return (
     <form onSubmit={placeOrder} className="place-order">
       <div className="place-order-left">
-        <p className="title">Delivery Information</p>
+        <p className="title-delivery">DELIVERY INFORMATIONS</p>
         <div className="multi-fields">
           <input
             required
@@ -142,7 +142,7 @@ function PlaceOrder() {
       </div>
       <div className="place-order-right">
         <div className="cart-total">
-          <h2>Cart Total</h2>
+          <p className="title-delivery">YOUR CART TOTAL</p>
           <div className="cart-total-details">
             <p>Subtotal</p>
             <p>€{getTotalCartAmount()}</p>

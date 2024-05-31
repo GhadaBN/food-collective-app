@@ -1,0 +1,51 @@
+.my-orders {
+  width: 80%;
+  margin: 2rem auto;
+}
+
+.my-orders h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.my-orders-order {
+  display: flex;
+  align-items: center;
+  padding: 5px 5px;
+  border-radius: 10px;
+  border: solid 2px black;
+  background-color: #eebdbe;
+  box-shadow: -2px 2px 0px black;
+  font-size: 1.2rem;
+  padding: 5px 20px;
+}
+
+.order-icon {
+  width: 50px;
+  height: 50px;
+  margin-right: 1rem;
+}
+
+/* .order-details {
+  flex-grow: 1;
+} */
+
+.order-items {
+  margin: 0;
+  font-size: 1rem;
+  /* line-height: 1.5; */
+}
+
+.order-total {
+  margin-top: 0.5rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: black;
+}

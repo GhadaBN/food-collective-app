@@ -7,8 +7,9 @@ const menuItemSchema = new Schema({
     required: true,
   },
   itemName: { type: String, required: true },
+  description: { type: String, required: false },
   price: { type: Number, required: true },
-  image: { type: String, required: true },
+  image: { type: String, required: false },
 });
 
 const MenuItem = model("MenuItem", menuItemSchema);

@@ -12,13 +12,14 @@ function Navbar({ setShowLogin }) {
     <div className="navbar">
       <div className="logo">
         <Link to="/">
-          <img src={assets.logo} alt="" className="logo" />
+          <p className="logo">TOMATO</p>
+          {/* <img src={assets.logo} alt="" className="logo" /> */}
         </Link>
       </div>
       <ul className="navbar-menu">
         <li className={menu === "home" ? "active" : ""}>
           <Link to="/" onClick={() => setMenu("home")} className="nav-link">
-            HOME
+            Home
           </Link>
         </li>
         <li className={menu === "restaurants" ? "active" : ""}>
@@ -27,7 +28,7 @@ function Navbar({ setShowLogin }) {
             onClick={() => setMenu("restaurants")}
             className="nav-link"
           >
-            RESTAURANTS
+            Restaurants
           </Link>
         </li>
         <li className={menu === "our-story" ? "active" : ""}>
@@ -36,7 +37,7 @@ function Navbar({ setShowLogin }) {
             onClick={() => setMenu("our-story")}
             className="nav-link"
           >
-            OUR STORY
+            Our Story
           </Link>
         </li>
       </ul>

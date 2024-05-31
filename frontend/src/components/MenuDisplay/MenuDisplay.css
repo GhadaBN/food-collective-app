@@ -1,3 +1,5 @@
-.menu-item-container {
+.menu-display {
   position: relative;
+  display: flex;
+  align-items: center;
 }

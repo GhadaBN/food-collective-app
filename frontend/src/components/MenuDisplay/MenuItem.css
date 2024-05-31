@@ -4,13 +4,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-bottom: 1rem; /* Add some padding to the bottom for spacing with hr */
+  padding-bottom: 1rem;
 }
 
 .menu-text {
-  text-align: left; /* Left align the text */
+  text-align: left;
   padding-right: 1rem;
-  line-height: 1.5rem; /* Reduced line-height to decrease space between text */
+  line-height: 1rem;
   width: 80%;
   margin-top: 1rem;
 }
@@ -19,54 +19,67 @@
   display: flex;
   align-items: center;
   gap: 20px;
+  width: 25px;
+  height: 25px;
 }
 
 .add,
 .remove {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   cursor: pointer;
-  border-radius: 50%;
+  /* border-radius: 50%; */
   background-color: #ff1414;
   color: white;
   border: none;
   font-size: 1rem;
   text-align: center;
-  line-height: 30px;
+  display: flex; /* Flexbox to center the text */
+  justify-content: center;
+  align-items: center;
   transition: all 0.3s ease;
 }
 
 .item-counter {
   display: flex;
   align-items: center;
-  gap: 10px; /* Increase gap between the counter elements */
+  gap: 10px;
   border: 2px solid #ff1414;
   border-radius: 20px;
   padding: 0.3rem 0.5rem;
-  background-color: white;
-  transition: all 0.3s ease; /* Smooth transition for the counter */
+  transition: all 0.3s ease;
+  /* height: 25px; Set the height of the counter */
 }
 
 .item-counter button {
-  width: 30px; /* Adjust width for a larger button */
-  height: 30px; /* Adjust height for a larger button */
+  width: 25px; /* Adjust width for a larger button */
+  height: 25px; /* Adjust height for a larger button */
   cursor: pointer;
-  border-radius: 50%;
+  /* border-radius: 50%; */
   background: none;
   color: #ff1414;
   border: none;
   font-size: 1rem;
   text-align: center;
-  line-height: 30px; /* Ensure text is vertically centered */
+  display: flex; /* Flexbox to center the text */
+  justify-content: center;
+  align-items: center;
+}
+.add button {
 }
 
 .item-name {
   font-size: 1rem;
-  padding-bottom: 0.2rem; /* Reduce padding-bottom for less space between text */
+  /* padding-bottom: 0.2rem; */
 }
 
+.item-description {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  color: grey;
+}
 hr {
   width: 80%;
   border: 1px solid #ddd;
-  margin: 1rem auto; /* Center hr with some margin for spacing */
+  margin: 0.5rem auto;
 }

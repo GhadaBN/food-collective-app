@@ -1,27 +1,72 @@
 .menu-item-container {
   position: relative;
-  width: 35%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 1rem; /* Add some padding to the bottom for spacing with hr */
 }
-.add {
-  width: 35px;
-  position: absolute;
-  bottom: 20%;
-  right: 10%;
-  cursor: pointer;
-  border-radius: 50%;
+
+.menu-text {
+  text-align: left; /* Left align the text */
+  padding-right: 1rem;
+  line-height: 1.5rem; /* Reduced line-height to decrease space between text */
+  width: 80%;
+  margin-top: 1rem;
 }
-.item-counter {
-  position: absolute;
-  bottom: 20%;
-  right: 10%;
-  cursor: pointer;
+
+.counter-wrapper {
   display: flex;
   align-items: center;
-  gap: 10px;
-  border-radius: 50px;
-  background: white;
-  padding: 6px;
+  gap: 20px; /* Increase space between price and counter */
 }
-.item-counter img {
-  width: 30px;
+
+.add,
+.remove {
+  width: 30px; /* Adjust width for a larger button */
+  height: 30px; /* Adjust height for a larger button */
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: #ff1414;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  text-align: center;
+  line-height: 30px; /* Ensure text is vertically centered */
+  transition: all 0.3s ease; /* Smooth transition for the button */
+}
+
+.item-counter {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Increase gap between the counter elements */
+  border: 2px solid #ff1414;
+  border-radius: 20px;
+  padding: 0.3rem 0.5rem;
+  background-color: white;
+  transition: all 0.3s ease; /* Smooth transition for the counter */
+}
+
+.item-counter button {
+  width: 30px; /* Adjust width for a larger button */
+  height: 30px; /* Adjust height for a larger button */
+  cursor: pointer;
+  border-radius: 50%;
+  background: none;
+  color: #ff1414;
+  border: none;
+  font-size: 1rem;
+  text-align: center;
+  line-height: 30px; /* Ensure text is vertically centered */
+}
+
+.item-name {
+  font-size: 1rem;
+  padding-bottom: 0.2rem; /* Reduce padding-bottom for less space between text */
+}
+
+hr {
+  width: 80%;
+  border: 1px solid #ddd;
+  margin: 1rem auto; /* Center hr with some margin for spacing */
 }

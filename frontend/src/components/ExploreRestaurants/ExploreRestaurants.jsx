@@ -13,7 +13,7 @@ const ExploreRestaurants = () => {
 
   return (
     <div className="explore-restaurants" id="explore-restaurants">
-      <h2 className="explore-restaurants-text">Explore Restaurants</h2>
+      <h2 className="text">EXPLORE RESTAURANTS</h2>
       <div className="restaurants-grid">
         {restaurants.map((restaurant) => (
           <div

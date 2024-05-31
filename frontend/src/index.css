@@ -1,9 +1,18 @@
 /* color-Palette
 #0084e3 blue
-#ff1414 red
-#f7f2d7 off-White */
+#fc0230 red
+#eee3d2 off-White
+#eebdbe Rosa
+ */
 
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+
+@font-face {
+  font-family: "Baking-Sauce";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../src/assets/BakingSauce-gxVW3.otf");
+}
 
 * {
   margin: 0;
@@ -12,11 +21,15 @@
   font-family: outfit;
 }
 body {
+  padding-top: 90px;
   min-height: 100vh;
   min-width: 100vw;
   overflow-x: hidden;
   background-color: #eee3d2;
   display: block;
+}
+.content {
+  padding-top: 90px;
 }
 a {
   text-decoration: none;

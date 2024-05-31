@@ -1,26 +1,36 @@
 .navbar {
   width: 95%;
   min-width: 95%;
+  height: 3.8rem;
   margin: 1.5rem auto 0 auto;
-  padding: 10px 30px;
+  padding: 0.5rem 2.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border: 3px solid black;
   border-radius: 45px;
   background-color: #eee3d2;
+  z-index: 1000;
+  top: 0;
+  position: fixed;
 }
 
 .logo {
   position: relative;
-  width: 5.5rem;
   height: auto;
+  font-family: "Baking-Sauce";
+  letter-spacing: -2px;
+  font-size: 2.5rem;
+  color: #fc0230;
+  text-shadow: -3px 3px 0px black;
+  -webkit-text-stroke: 1px black;
 }
 
 .navbar-menu {
   display: flex;
   list-style: none;
   gap: 3rem;
+  font-size: 1.3rem;
 }
 .navbar li {
   cursor: pointer;

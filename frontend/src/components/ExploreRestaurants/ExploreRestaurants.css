@@ -1,4 +1,10 @@
-/* color-Palette #0084e3 blue #ff1414 red #f7f2d7 off-White */
+/* color-Palette
+#0084e3 blue
+#ff1414 red
+#eee3d2 off-White
+#eebdbe Rosa
+#284c13 green
+ */
 
 .explore-restaurants {
   margin-left: auto;
@@ -6,16 +12,23 @@
   margin-bottom: 10%;
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   gap: 20px;
   border-radius: 25px;
 }
 .explore-restaurants h2 {
-  font-size: max(1.7vw, 24px);
-  font-weight: 400;
   padding-left: 35px;
   margin-top: 3rem;
   padding-bottom: 1rem;
+  font-family: "Baking-Sauce";
+  letter-spacing: -2px;
+  line-height: 4.5rem;
+  font-size: 3.5rem;
+  color: #eebdbe;
+  text-shadow: -5px 5px 0px black;
+  -webkit-text-stroke: 0.2px black;
+  margin-bottom: 1rem;
+  text-align: center;
+  background-color: #eee3d2;
 }
 .restaurants-grid {
   display: grid;

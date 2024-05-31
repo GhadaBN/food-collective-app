@@ -18,13 +18,13 @@
 .counter-wrapper {
   display: flex;
   align-items: center;
-  gap: 20px; /* Increase space between price and counter */
+  gap: 20px;
 }
 
 .add,
 .remove {
-  width: 30px; /* Adjust width for a larger button */
-  height: 30px; /* Adjust height for a larger button */
+  width: 30px;
+  height: 30px;
   cursor: pointer;
   border-radius: 50%;
   background-color: #ff1414;
@@ -32,8 +32,8 @@
   border: none;
   font-size: 1rem;
   text-align: center;
-  line-height: 30px; /* Ensure text is vertically centered */
-  transition: all 0.3s ease; /* Smooth transition for the button */
+  line-height: 30px;
+  transition: all 0.3s ease;
 }
 
 .item-counter {

@@ -27,26 +27,37 @@ function MyOrders() {
       fetchOrders();
     }
   }, [token]);
+
   return (
-    <div className="my-orders">
-      <h2>My Orders</h2>
-      <div className="container">
-        {data.map((order, index) => {
-          return (
-            <div key={index} className="my-orders-order">
-              <img src={assets.add_icon_green} className="" />
-              <p>
-                {order.items.map((item, index) => {
-                  if (index === order.items.length - 1) {
-                    return `${item.name} x ${item.quantity}, `;
-                  } else {
-                    return `${item.name} x ${item.quantity}`;
-                  }
-                })}
-              </p>
-            </div>
-          );
-        })}
+    <div className="sections-wrapper">
+      <div className="left-container">
+        <h1 className="title">OUR MISSION</h1>
+        <div className="photo-container">
+          <img className="responsive-image" src={assets.our_story} />
+        </div>
+        <p className="description">Our Collective</p>
+      </div>
+      <div className="right-container">
+        <div className="my-orders">
+          <h1 className="title">MY ORDERS</h1>
+          <div className="container">
+            {data.map((order, index) => (
+              <div key={index} className="my-orders-order">
+                <div className="order-details">
+                  <p className="order-items">
+                    {order.items.map((item, index) => (
+                      <span key={index}>
+                        {item.name} x {item.quantity}
+                        {index < order.items.length - 1 && ", "}
+                      </span>
+                    ))}
+                  </p>
+                  <p className="order-total">Total: €{order.amount}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

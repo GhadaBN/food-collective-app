@@ -14,6 +14,30 @@
   src: url("../src/assets/BakingSauce-gxVW3.otf");
 }
 
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes shadow-float {
+  0% {
+    filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
+  }
+  50% {
+    filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.1));
+  }
+  100% {
+    filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
+  }
+}
+
 * {
   margin: 0;
   padding: 0;

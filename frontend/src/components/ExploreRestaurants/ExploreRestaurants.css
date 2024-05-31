@@ -62,7 +62,11 @@
   background-color: #fc0230;
   box-shadow: -2px 2px 0px black;
   font-size: 1rem;
-  /* color: white; */
+  transition: box-shadow 0.1s ease;
+}
+
+.restaurants-grid .button:active {
+  box-shadow: none;
 }
 .restaurants-grid .category {
   padding: 5px 20px;

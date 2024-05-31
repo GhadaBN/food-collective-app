@@ -8,50 +8,46 @@ function Cart() {
     useContext(StoreContext);
 
   return (
-    <>
-      <div className="cart">
-        <div className="cart-items">
-          <div className="cart-items-title">
-            <p>Items</p>
-            <p>Title</p>
-            <p>Price</p>
-            <p>Quantity</p>
-            <p>Total</p>
-            <p>Remove</p>
-          </div>
-          <br />
-          <hr />
-          {Object.entries(cartItems).map(([itemId, quantity]) => {
-            const item = menuItems.find((item) => item._id === itemId);
-            return item ? (
-              <div key={itemId}>
-                <div className="cart-item">
-                  <img
-                    src={`${url}/images/${item.image}`}
-                    className="cart-item-image"
-                    alt={item.itemName}
-                  />
-                  <p className="cart-item-name">{item.itemName}</p>
-                  <p className="cart-item-price">€{item.price}</p>
-                  <p className="cart-item-quantity">{quantity}</p>
-                  <p className="cart-item-total">€{item.price * quantity}</p>
-                  <button
-                    className="cart-item-remove"
-                    onClick={() => removeFromCart(itemId)}
-                  >
-                    Remove
-                  </button>
-                </div>
-                <hr />
-              </div>
-            ) : null;
-          })}
+    <div className="cart-container">
+      <div className="cart-items-container">
+        <div className="cart-items-title">
+          <p>Items</p>
+          <p>Price</p>
+          <p>Quantity</p>
+          <p>Total</p>
+          <p>Remove</p>
         </div>
+        <hr />
+        {Object.entries(cartItems).map(([itemId, quantity]) => {
+          const item = menuItems.find((item) => item._id === itemId);
+          return item ? (
+            <div key={itemId}>
+              <div className="cart-item">
+                {/* Uncomment and adjust the image if needed */}
+                {/* <img
+                  src={`${url}/images/${item.image}`}
+                  className="cart-item-image"
+                  alt={item.itemName}
+                /> */}
+                <p className="cart-item-name">{item.itemName}</p>
+                <p className="cart-item-price">€{item.price}</p>
+                <p className="cart-item-quantity">{quantity}</p>
+                <p className="cart-item-total">€{item.price * quantity}</p>
+                <button
+                  className="cart-item-remove"
+                  onClick={() => removeFromCart(itemId)}
+                >
+                  REMOVE
+                </button>
+              </div>
+              <hr />
+            </div>
+          ) : null;
+        })}
       </div>
-      <div className="cart-bottom">
+      <div className="cart-bottom-container">
         <div className="cart-total">
           <h2>Cart Total</h2>
-
           <div className="cart-total-details">
             <p>Subtotal</p>
             <p>€{getTotalCartAmount()}</p>
@@ -66,11 +62,11 @@ function Cart() {
             <b>€{getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 3}</b>
           </div>
           <Link to="/order">
-            <button>PROCEED TO CHECKOUT</button>
+            <button className="cart-total-button">PROCEED TO CHECKOUT</button>
           </Link>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

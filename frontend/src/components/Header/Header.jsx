@@ -1,6 +1,7 @@
 import React from "react";
 import "./Header.css";
 import { assets } from "../../assets/assets";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
@@ -11,7 +12,9 @@ function Header() {
           <img src={assets.heart_sticker} className="heart_sticker" />
           <img src="/header_text.png" className="header-img" />
         </div>
-        <button className="button">Explore Restaurants</button>
+        <Link to="/restaurants" className="button">
+          Explore Restaurants
+        </Link>
       </div>
     </div>
   );

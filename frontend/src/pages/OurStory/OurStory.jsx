@@ -7,8 +7,8 @@ const OurStory = () => {
     <div className="sections-wrapper">
       <div className="left-container">
         <h1 className="title">OUR MISSION</h1>
-        <div className="image-container">
-          <img className="responsive-image" src={assets.our_story_img} />
+        <div className="photo-container">
+          <img className="responsive-image" src={assets.our_story} />
         </div>
         <p className="description">Our Collective</p>
       </div>

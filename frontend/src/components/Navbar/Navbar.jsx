@@ -27,7 +27,7 @@ function Navbar({ setShowLogin }) {
       <ul className="navbar-menu">
         <li className={menu === "home" ? "active" : ""}>
           <Link to="/" onClick={() => setMenu("home")} className="nav-link">
-            Home
+            HOME
           </Link>
         </li>
         <li className={menu === "restaurants" ? "active" : ""}>
@@ -36,7 +36,7 @@ function Navbar({ setShowLogin }) {
             onClick={() => setMenu("restaurants")}
             className="nav-link"
           >
-            Restaurants
+            RESTAURANTS
           </Link>
         </li>
         <li className={menu === "our-story" ? "active" : ""}>
@@ -45,7 +45,7 @@ function Navbar({ setShowLogin }) {
             onClick={() => setMenu("our-story")}
             className="nav-link"
           >
-            Our Story
+            OUR STORY
           </Link>
         </li>
       </ul>

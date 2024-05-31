@@ -11,9 +11,9 @@ function Navbar({ setShowLogin }) {
     useContext(StoreContext);
 
   const handleLogout = () => {
-    setToken(""); // Clear token
-    setIsLoggedIn(false); // Update login status
-    setShowLogout(false); // Hide logout notification
+    setToken("");
+    setIsLoggedIn(false);
+    setShowLogout(false);
   };
 
   return (

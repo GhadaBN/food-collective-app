@@ -56,10 +56,11 @@ function RestaurantDetails() {
             <img src={restaurant.image} />
           </div>
           <p className="description">{restaurant.description}</p>
-          <p> {restaurant.category}</p>
+          {/* <p> {restaurant.category}</p> */}
         </div>
       )}
-      <div className="menu-container">
+      <div className="right-container">
+        <div className="menu-wrapper"></div>
         <MenuDisplay items={menuItems} baseUrl={url} />
       </div>
     </div>

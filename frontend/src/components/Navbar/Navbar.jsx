@@ -6,7 +6,15 @@ import { Link } from "react-router-dom";
 
 function Navbar({ setShowLogin }) {
   const [menu, setMenu] = useState("home");
-  const { getTotalCartAmount } = useContext(StoreContext);
+  const [showLogout, setShowLogout] = useState(false);
+  const { getTotalCartAmount, isLoggedIn, setToken, setIsLoggedIn } =
+    useContext(StoreContext);
+
+  const handleLogout = () => {
+    setToken(""); // Clear token
+    setIsLoggedIn(false); // Update login status
+    setShowLogout(false); // Hide logout notification
+  };
 
   return (
     <div className="navbar">
@@ -44,15 +52,28 @@ function Navbar({ setShowLogin }) {
       <div className="navbar-right">
         <div className="basket-container">
           <Link to="/cart">
-            <img src={assets.basket_icon} className="basket-icon" />
+            <img src={assets.basket_icon} className="basket-icon" alt="Cart" />
           </Link>
           <div className={getTotalCartAmount() === 0 ? "" : "dot"}></div>
         </div>
-        <img
-          onClick={() => setShowLogin(true)}
-          src={assets.user_icon}
-          className="user-icon"
-        />
+        {isLoggedIn ? (
+          <div
+            onClick={() => setShowLogout(!showLogout)}
+            style={{ position: "relative" }}
+          >
+            <img src={assets.user_logged} className="user-icon" alt="User" />
+            <div className={`logout-notification ${showLogout ? "show" : ""}`}>
+              <p onClick={handleLogout}>Logout</p>
+            </div>
+          </div>
+        ) : (
+          <img
+            onClick={() => setShowLogin(true)}
+            src={assets.user_icon}
+            className="user-icon"
+            alt="User"
+          />
+        )}
       </div>
     </div>
   );

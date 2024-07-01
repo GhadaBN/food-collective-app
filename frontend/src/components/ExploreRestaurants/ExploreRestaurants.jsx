@@ -13,7 +13,7 @@ const ExploreRestaurants = () => {
 
   return (
     <div className="explore-restaurants" id="explore-restaurants">
-      <h2 className="text">EXPLORE RESTAURANTS</h2>
+      <h2 className="explore-restaurants-title">EXPLORE RESTAURANTS</h2>
       <div className="restaurants-grid">
         {restaurants.map((restaurant) => (
           <div
@@ -21,10 +21,15 @@ const ExploreRestaurants = () => {
             className="restaurant-cell"
             onClick={() => handleRestaurantClick(restaurant)}
           >
-            <img src={restaurant.image} alt={restaurant.restaurantName} />
-            <button className="button">{restaurant.restaurantName}</button>
-            {/* <p className="text">{restaurant.description}</p> */}
-            <p className="category">{restaurant.category}</p>
+            <img
+              src={restaurant.image}
+              alt={restaurant.restaurantName}
+              className="restaurant-cell-img"
+            />
+            <button className="button-restaurant-name">
+              {restaurant.restaurantName}
+            </button>
+            <p className="category-button">{restaurant.category}</p>
           </div>
         ))}
       </div>

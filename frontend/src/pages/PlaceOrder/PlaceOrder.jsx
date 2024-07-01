@@ -62,7 +62,7 @@ function PlaceOrder() {
   return (
     <form onSubmit={placeOrder} className="place-order">
       <div className="place-order-left">
-        <p className="title-delivery">DELIVERY INFORMATIONS</p>
+        <p className="title-delivery">Delivery informations</p>
         <div className="multi-fields">
           <input
             required
@@ -70,7 +70,7 @@ function PlaceOrder() {
             onChange={onChangeHandler}
             value={data.firstName}
             type="text"
-            placeholder="First Name"
+            placeholder="First name"
           />
           <input
             required
@@ -78,7 +78,7 @@ function PlaceOrder() {
             onChange={onChangeHandler}
             value={data.lastName}
             type="text"
-            placeholder="Last Name"
+            placeholder="Last name"
           />
         </div>
         <input
@@ -142,21 +142,23 @@ function PlaceOrder() {
       </div>
       <div className="place-order-right">
         <div className="cart-total">
-          <p className="title-delivery">YOUR CART TOTAL</p>
+          <p className="title-delivery">Your cart total</p>
           <div className="cart-total-details">
             <p>Subtotal</p>
             <p>€{getTotalCartAmount()}</p>
           </div>
           <hr />
           <div className="cart-total-details">
-            <p>Delivery Fees</p>
+            <p>Delivery fees</p>
             <p>€{getTotalCartAmount() === 0 ? "" : "3"}</p>
           </div>
           <div className="cart-total-details">
             <b>Total</b>
             <b>€{getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 3}</b>
           </div>
-          <button type="submit">PROCEED TO PAY</button>
+          <button type="submit" className="pay-button">
+            Proceed to pay
+          </button>
         </div>
       </div>
     </form>

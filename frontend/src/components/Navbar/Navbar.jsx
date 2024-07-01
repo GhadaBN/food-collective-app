@@ -20,8 +20,7 @@ function Navbar({ setShowLogin }) {
     <div className="navbar">
       <div className="logo">
         <Link to="/">
-          <p className="logo">TOMATO</p>
-          {/* <img src={assets.logo} alt="" className="logo" /> */}
+          <img src={assets.logo} className="logo-icon" alt="logo" />
         </Link>
       </div>
       <ul className="navbar-menu">

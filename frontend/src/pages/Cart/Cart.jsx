@@ -47,7 +47,7 @@ function Cart() {
       </div>
       <div className="cart-bottom-container">
         <div className="cart-total">
-          <h2>Cart Total</h2>
+          <p className="title-delivery">Cart Total</p>
           <div className="cart-total-details">
             <p>Subtotal</p>
             <p>€{getTotalCartAmount()}</p>
@@ -62,7 +62,7 @@ function Cart() {
             <b>€{getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 3}</b>
           </div>
           <Link to="/order">
-            <button className="cart-total-button">PROCEED TO CHECKOUT</button>
+            <button className="cart-total-button">Proceed to checkout</button>
           </Link>
         </div>
       </div>

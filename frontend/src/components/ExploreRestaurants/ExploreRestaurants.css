@@ -31,6 +31,23 @@
   text-align: center;
   background-color: #eee3d2;
 }
+.category-buttons-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.category-buttons-wrapper button {
+  padding: 5px 20px;
+  border-radius: 20px;
+  border: solid 2px black;
+  background-color: #eebdbe;
+  box-shadow: -2px 2px 0px black;
+  font-size: 1rem;
+  transition: box-shadow 0.1s ease;
+  cursor: pointer;
+}
 
 .restaurants-grid {
   display: grid;
@@ -71,7 +88,7 @@
   box-shadow: none;
 }
 
-.category-button {
+.category-tag {
   padding: 5px 20px;
   border-radius: 20px;
   border: solid 2px black;

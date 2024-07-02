@@ -12,7 +12,7 @@ function Header() {
           <img src={assets.heart_sticker} className="heart_sticker" />
           <img src="/header_text.png" className="header-img" />
         </div>
-        <Link to="/restaurants" className="button">
+        <Link to="/restaurants" className="header-button">
           Explore Restaurants
         </Link>
       </div>

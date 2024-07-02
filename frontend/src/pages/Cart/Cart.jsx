@@ -17,7 +17,6 @@ function Cart() {
           <p>Total</p>
           <p>Remove</p>
         </div>
-        <hr />
         {Object.entries(cartItems).map(([itemId, quantity]) => {
           const item = menuItems.find((item) => item._id === itemId);
           return item ? (
@@ -40,19 +39,18 @@ function Cart() {
                   REMOVE
                 </button>
               </div>
-              <hr />
             </div>
           ) : null;
         })}
       </div>
       <div className="cart-bottom-container">
         <div className="cart-total">
-          <h2>Cart Total</h2>
+          <p className="title-delivery">Cart Total</p>
           <div className="cart-total-details">
             <p>Subtotal</p>
             <p>€{getTotalCartAmount()}</p>
           </div>
-          <hr />
+          <hr className="hr-cart" />
           <div className="cart-total-details">
             <p>Delivery Fees</p>
             <p>€{getTotalCartAmount() === 0 ? "" : "3"}</p>
@@ -62,7 +60,7 @@ function Cart() {
             <b>€{getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 3}</b>
           </div>
           <Link to="/order">
-            <button className="cart-total-button">PROCEED TO CHECKOUT</button>
+            <button className="cart-total-button">Proceed to checkout</button>
           </Link>
         </div>
       </div>

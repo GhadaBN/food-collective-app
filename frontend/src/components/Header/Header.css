@@ -48,7 +48,7 @@
 
   animation: float 5s ease-in-out infinite, shadow-float 5s ease-in-out infinite;
 }
-.header .button {
+.header-button {
   padding: 10px 25px;
   border-radius: 50px;
   border: solid 2px black;

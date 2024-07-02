@@ -4,82 +4,84 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-bottom: 1rem;
+  margin-bottom: 5px;
 }
 
 .menu-text {
   text-align: left;
   padding-right: 1rem;
   line-height: 1rem;
-  width: 80%;
-  margin-top: 1rem;
+  width: 70%;
+  margin: 1rem auto;
 }
 
-.counter-wrapper {
+.counter-price-wrapper {
   display: flex;
   align-items: center;
-  gap: 20px;
-  width: 25px;
-  height: 25px;
+  justify-content: space-between;
 }
-
-.add,
-.remove {
-  width: 25px;
-  height: 25px;
+.add-to-cart-button {
+  padding: 2px 20px;
   cursor: pointer;
-  /* border-radius: 50%; */
-  background-color: #ff1414;
-  color: white;
-  border: none;
+  background-color: #fc0230;
+  color: black;
+  border: solid black;
+  border-radius: 30px;
   font-size: 1rem;
   text-align: center;
-  display: flex; /* Flexbox to center the text */
+  display: flex;
   justify-content: center;
   align-items: center;
   transition: all 0.3s ease;
+}
+
+.counter-container {
+  border: solid 2px black;
+  background-color: #fc0230;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+
+.add-button,
+.remove-button {
+  background-color: transparent;
+  border: none;
+  padding: 2px 19px;
+  cursor: pointer;
+  color: black;
+  font-size: 1rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  box-shadow: none;
 }
 
 .item-counter {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  border: 2px solid #ff1414;
-  border-radius: 20px;
-  padding: 0.3rem 0.5rem;
-  transition: all 0.3s ease;
-  /* height: 25px; Set the height of the counter */
-}
-
-.item-counter button {
-  width: 25px; /* Adjust width for a larger button */
-  height: 25px; /* Adjust height for a larger button */
-  cursor: pointer;
-  /* border-radius: 50%; */
-  background: none;
-  color: #ff1414;
-  border: none;
+  color: black;
   font-size: 1rem;
   text-align: center;
-  display: flex; /* Flexbox to center the text */
+  display: flex;
   justify-content: center;
   align-items: center;
-}
-.add button {
 }
 
 .item-name {
   font-size: 1rem;
-  /* padding-bottom: 0.2rem; */
 }
 
 .item-description {
   font-size: 0.9rem;
+  line-height: 1.7;
   margin-bottom: 1rem;
   color: grey;
 }
 hr {
-  width: 80%;
-  border: 1px solid #ddd;
-  margin: 0.5rem auto;
+  width: 70%;
+  border: 1px solid grey;
 }

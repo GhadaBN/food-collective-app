@@ -12,22 +12,28 @@ function MenuItem({ item }) {
         <div className="menu-text">
           <p className="item-name">{item.itemName}</p>
           <p className="item-description">{item.description}</p>
-          <div className="counter-wrapper">
+          <div className="counter-price-wrapper">
             <p className="item-price">€{item.price}</p>
             {!cartItems[itemId] ? (
-              <button className="add" onClick={() => addToCart(itemId)}>
-                +
+              <button
+                className="add-to-cart-button"
+                onClick={() => addToCart(itemId)}
+              >
+                Add to cart
               </button>
             ) : (
-              <div className="item-counter">
+              <div className="counter-container">
                 <button
-                  className="remove"
+                  className="remove-button"
                   onClick={() => removeFromCart(itemId)}
                 >
                   -
                 </button>
-                <p>{cartItems[itemId]}</p>
-                <button className="add" onClick={() => addToCart(itemId)}>
+                <p className="item-counter">{cartItems[itemId]}</p>
+                <button
+                  className="add-button"
+                  onClick={() => addToCart(itemId)}
+                >
                   +
                 </button>
               </div>

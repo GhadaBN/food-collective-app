@@ -1,12 +1,11 @@
-.restaurant-details-container {
-  margin-top: 0.5rem;
-  width: 100%;
-  min-height: 88vh;
+.sections-wrapper {
+  margin: 1.5rem auto;
+  width: 98%;
+  min-height: 90vh;
   display: flex;
   border: 3px solid black;
-  border-radius: 20px;
+  border-radius: 25px;
   overflow: hidden;
-  margin-bottom: 10%;
 }
 
 .restaurant-header {

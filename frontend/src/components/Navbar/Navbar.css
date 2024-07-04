@@ -1,9 +1,9 @@
 .navbar {
-  width: 95%;
-  min-width: 95%;
+  width: 96%;
+  min-width: 96%;
   height: 3.8rem;
   margin: 1.5rem auto 0 auto;
-  padding: 0.5rem 2.5rem;
+  padding: 0.5rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -12,13 +12,20 @@
   background-color: #eee3d2;
   z-index: 1000;
   top: 0;
+  left: 50%;
+  transform: translateX(-50%);
   position: fixed;
 }
 
-.logo-icon {
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
-  height: auto;
-  width: 2.2rem;
+}
+.logo-icon {
+  width: 2.6rem;
+  margin-top: 3px;
 }
 
 .navbar-menu {
@@ -37,7 +44,7 @@
 }
 
 .navbar-right img {
-  width: 1.6rem;
+  width: 2rem;
   position: relative;
 }
 .navbar .active {
@@ -50,12 +57,12 @@
 }
 .basket-container .dot {
   position: absolute;
-  min-width: 12px;
-  min-height: 12px;
-  background-color: #ff1414;
+  min-width: 13px;
+  min-height: 13px;
+  background-color: #fc0230;
   border-radius: 8px;
-  top: 17px;
-  right: 17px;
+  top: 23px;
+  right: 23px;
 }
 
 .logout-notification {

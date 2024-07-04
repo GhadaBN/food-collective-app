@@ -10,6 +10,8 @@ import sticker_hot from "./sticker_hot.png";
 import our_story_img from "./our_story_img.jpg";
 import heart_sticker from "./heart_sticker.png";
 import our_story from "./our_story.jpg";
+import linkedin_icon from "./linkedin.png";
+import github_icon from "./github.png";
 
 export const assets = {
   basket_icon,
@@ -24,4 +26,6 @@ export const assets = {
   our_story_img,
   heart_sticker,
   our_story,
+  linkedin_icon,
+  github_icon,
 };

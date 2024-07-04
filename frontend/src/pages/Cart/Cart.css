@@ -2,13 +2,13 @@
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  margin: 5rem auto 1rem auto;
+  margin: 3rem auto 1rem auto;
 }
 
 .cart-items-container {
   flex: 1;
   min-width: 50%;
-  padding: 1rem;
+  padding: 2rem;
   box-sizing: border-box;
 }
 
@@ -36,16 +36,8 @@
   height: auto;
 }
 
-.cart-item-name,
-.cart-item-price,
-.cart-item-quantity,
-.cart-item-total,
 .cart-item-remove {
-  margin: 0 1rem;
-}
-
-.cart-item-remove {
-  padding: 5px 15px;
+  padding: 2px;
   border-radius: 20px;
   border: solid 2px black;
   background-color: #fc0230;

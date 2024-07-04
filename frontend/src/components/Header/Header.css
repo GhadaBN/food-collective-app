@@ -1,39 +1,56 @@
 .header {
   width: 100%;
-  margin: 0px auto;
+  height: 90vh;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.header-text-container {
   text-align: center;
+  margin: auto;
+  width: 100%;
+  height: 90vh;
+  overflow: hidden;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.header-content {
-  text-align: center;
-  position: relative;
+.header-text {
+  font-family: "Baking-Sauce";
+  color: #fc0230;
+  font-size: 25rem;
+  line-height: 21rem;
+  letter-spacing: -2rem;
+  margin: 0;
+  padding: 0;
 }
-
-.img-container {
-  width: 100vw;
-  height: 90vh;
-  overflow: hidden;
-  position: relative;
-}
-
-.header-img {
-  margin: auto;
-  width: 98%;
-  height: auto;
-  object-fit: contain;
+.club-sticker {
+  padding: 10px 50px;
+  border-radius: 50px;
+  border: solid 2px black;
+  background-color: #eebdbe;
+  box-shadow: -8px 8px 0px black;
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+  top: 67%;
+  left: 82%;
 }
-
 .hot_sticker {
   position: absolute;
-  top: 40%;
+  top: 42%;
   left: 80%;
   z-index: 99;
   width: 250px;
@@ -41,8 +58,8 @@
 }
 .heart_sticker {
   position: absolute;
-  bottom: 20%;
-  left: 10%;
+  bottom: 18%;
+  left: 8%;
   z-index: 99;
   width: 120px;
 
@@ -56,8 +73,8 @@
   box-shadow: -8px 8px 0px black;
   position: absolute;
   font-size: 1.5rem;
-  bottom: 10%;
-  left: 5%;
+  bottom: 8%;
+  left: 3%;
   animation: float 7s ease-in-out infinite, shadow-float 7s ease-in-out infinite;
 }
 

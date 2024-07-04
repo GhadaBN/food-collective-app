@@ -20,11 +20,6 @@ const StoreContextProvider = ({ children }) => {
   const url = "http://localhost:5005";
   const [token, setToken] = useState(() => localStorage.getItem("token") || "");
 
-  // Save token to localStorage whenever it changes
-  //   useEffect(() => {
-  //     localStorage.setItem("token", token);
-  //   }, [token]);
-  // // Save token to localStorage whenever it changes
   useEffect(() => {
     localStorage.setItem("token", token);
     setIsLoggedIn(!!token);
@@ -153,6 +148,14 @@ const StoreContextProvider = ({ children }) => {
     return totalAmount;
   };
 
+  const logout = () => {
+    setToken("");
+    setCartItems({});
+    localStorage.removeItem("token");
+    localStorage.removeItem("cartItems");
+    setIsLoggedIn(false);
+  };
+
   const contextValue = {
     cartItems,
     addToCart,
@@ -165,6 +168,7 @@ const StoreContextProvider = ({ children }) => {
     getTotalCartAmount,
     isLoggedIn,
     setIsLoggedIn,
+    logout,
   };
 
   return (

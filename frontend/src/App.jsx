@@ -1,6 +1,6 @@
 import React, { useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
-import { Routes, Route } from "react-router-dom"; // Ensure correct import from 'react-router-dom'
 import Home from "./pages/Home/Home";
 import Cart from "./pages/Cart/Cart";
 import OurStory from "./pages/OurStory/OurStory";
@@ -10,7 +10,9 @@ import RestaurantDetails from "./pages/RestaurantsList/RestaurantDetails";
 import PlaceOrder from "./pages/PlaceOrder/PlaceOrder";
 import Verify from "./pages/Verify/Verify";
 import MyOrders from "./pages/MyOrders/MyOrders";
-// import Footer from "./components/Footer/Footer";
+import Footer from "./components/Footer/Footer";
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
+
 const App = () => {
   const [showLogin, setShowLogin] = useState(false);
 
@@ -19,6 +21,7 @@ const App = () => {
       {showLogin && <LoginPopup setShowLogin={setShowLogin} />}
       <div className="app">
         <Navbar setShowLogin={setShowLogin} />
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
@@ -32,7 +35,7 @@ const App = () => {
           <Route path="/verify" element={<Verify />} />
           <Route path="/myorders" element={<MyOrders />} />
         </Routes>
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </>
   );

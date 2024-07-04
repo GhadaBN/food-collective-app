@@ -61,7 +61,10 @@ a {
 }
 
 .app {
-  width: 95%;
+  width: 98%;
   margin: auto;
   padding-top: 0;
+}
+li {
+  list-style: none;
 }

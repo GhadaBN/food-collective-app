@@ -7,21 +7,21 @@ import { Link } from "react-router-dom";
 function Navbar({ setShowLogin }) {
   const [menu, setMenu] = useState("home");
   const [showLogout, setShowLogout] = useState(false);
-  const { getTotalCartAmount, isLoggedIn, setToken, setIsLoggedIn } =
-    useContext(StoreContext);
+  const { getTotalCartAmount, isLoggedIn, logout } = useContext(StoreContext);
 
   const handleLogout = () => {
-    setToken("");
-    setIsLoggedIn(false);
+    logout();
     setShowLogout(false);
   };
 
   return (
     <div className="navbar">
-      <div className="logo">
-        <Link to="/">
-          <img src={assets.logo} className="logo-icon" alt="logo" />
-        </Link>
+      <div className="logo-container">
+        <div className="logo">
+          <Link to="/">
+            <img src={assets.logo} className="logo-icon" alt="logo" />
+          </Link>
+        </div>
       </div>
       <ul className="navbar-menu">
         <li className={menu === "home" ? "active" : ""}>

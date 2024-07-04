@@ -9,7 +9,6 @@
 .explore-restaurants {
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 10%;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -18,7 +17,7 @@
 
 .explore-restaurants-title {
   padding-left: 35px;
-  margin-top: 3rem;
+  margin-top: 2rem;
   padding-bottom: 1rem;
   font-family: "Baking-Sauce";
   letter-spacing: -2px;
@@ -50,8 +49,9 @@
 }
 
 .restaurants-grid {
+  overflow: hidden;
   display: grid;
-  width: 95%;
+  width: 94%;
   grid-template-columns: repeat(5, 1fr);
   margin: auto;
   gap: 1rem;
@@ -65,10 +65,10 @@
 }
 
 .restaurant-cell-img {
-  width: 260px;
+  width: 240px;
   height: auto;
-  border: solid 3px black;
-  border-radius: 12px;
+  border: solid 2.5px black;
+  border-radius: 10px;
   margin-bottom: 1rem;
   box-shadow: -2px 2px 0px black;
 }

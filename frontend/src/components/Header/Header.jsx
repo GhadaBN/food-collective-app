@@ -10,9 +10,9 @@ function Header() {
         <div className="img-container">
           <img src="/header_text.png" className="header-img" />
         </div>
-        <p to="/restaurants" className="club-sticker">
+        {/* <p to="/restaurants" className="club-sticker">
           Club
-        </p>
+        </p> */}
 
         <img src={assets.sticker_hot} className="hot-sticker" />
         <img src={assets.heart_sticker} className="heart-sticker" />

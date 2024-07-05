@@ -1,6 +1,5 @@
 .header {
   width: 100%;
-  height: 90vh;
   display: flex;
   position: relative;
   justify-content: center;
@@ -8,34 +7,29 @@
 }
 
 .header-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 100vw;
+  /* height: 90%; */
   position: relative;
-  width: 100%;
-  height: 100%;
+  overflow: hidden;
+  margin-top: 1rem;
 }
 
-.header-text-container {
-  text-align: center;
-  margin: auto;
+.img-container {
   width: 100%;
-  height: 90vh;
+  height: 90%;
   overflow: hidden;
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
-.header-text {
-  font-family: "Baking-Sauce";
-  color: #fc0230;
-  font-size: 25rem;
-  line-height: 21rem;
-  letter-spacing: -2rem;
-  margin: 0;
-  padding: 0;
+.header-img {
+  margin: auto;
+  width: 98%;
+  height: auto;
+  object-fit: contain;
+  position: relative;
+  /* left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); */
 }
 .club-sticker {
   padding: 10px 50px;
@@ -48,7 +42,7 @@
   top: 67%;
   left: 82%;
 }
-.hot_sticker {
+.hot-sticker {
   position: absolute;
   top: 42%;
   left: 80%;
@@ -56,7 +50,7 @@
   width: 250px;
   animation: float 5s ease-in-out infinite, shadow-float 5s ease-in-out infinite;
 }
-.heart_sticker {
+.heart-sticker {
   position: absolute;
   bottom: 18%;
   left: 8%;
@@ -78,26 +72,55 @@
   animation: float 7s ease-in-out infinite, shadow-float 7s ease-in-out infinite;
 }
 
-@keyframes float {
-  0% {
-    transform: translateY(0);
+@media (max-width: 480px) {
+  .header-content {
+    width: 100vw;
+    height: 35%;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 3rem;
+    padding: 0 1rem;
   }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0);
+
+  .club-sticker {
+    margin: 1rem auto;
+    width: 98%;
+    padding: 2px 20px;
+    border-radius: 50px;
+    box-shadow: -2px 2px 0px black;
+    left: 2%;
+    top: auto;
+    bottom: 5%;
+    text-align: center;
   }
 }
 
-@keyframes shadow-float {
-  0% {
-    filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
+@media (max-width: 768px) {
+  .header-content {
+    width: 100vw;
+    height: 35%;
+    position: relative;
+    overflow: hidden;
+    margin-top: 3rem;
   }
-  50% {
-    filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.1));
+  .club-sticker {
+    position: relative;
+    padding: 5px 30px;
+    border-radius: 50px;
+    box-shadow: -4px 4px 0px black;
   }
-  100% {
-    filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
+  .hot-sticker,
+  .heart-sticker,
+  .header-button {
+    display: none;
   }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+}
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+}
+
+@media (min-width: 1201px) {
 }

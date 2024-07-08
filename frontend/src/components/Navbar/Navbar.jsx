@@ -62,7 +62,7 @@ function Navbar({ setShowLogin }) {
           >
             <img src={assets.user_logged} className="user-icon" alt="User" />
             <div className={`logout-notification ${showLogout ? "show" : ""}`}>
-              <p onClick={handleLogout}>Logout</p>
+              <p onClick={handleLogout}>Disconnect account</p>
             </div>
           </div>
         ) : (

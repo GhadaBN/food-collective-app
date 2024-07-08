@@ -84,11 +84,11 @@
 
 .logout-notification {
   position: absolute;
-  top: 100%;
+  top: 1.5rem;
   right: 0;
-  background-color: white;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  background-color: #fc0230;
+  border: 2px solid black;
+  border-radius: 10px;
   padding: 0.5rem 1rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   display: none;
@@ -99,9 +99,11 @@
 }
 
 .logout-notification p {
+  text-align: center;
+  font-size: 1.1rem;
   margin: 0;
   cursor: pointer;
-  color: #ff1414;
+  color: #eee3d2;
 }
 
 /* -------------------------Media Query-----------------------*/

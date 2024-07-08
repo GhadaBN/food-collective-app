@@ -49,17 +49,23 @@
   width: 35px;
   margin-right: 10px;
 }
-
-@media (max-width: 1200px) {
+/* -------------------------Media Query-----------------------*/
+@media (min-width: 1201px) {
+  /* Add your styles for screens larger than 1200px here */
 }
 
-@media (max-width: 992px) {
+@media (min-width: 1025px) and (max-width: 1200px) {
+  /* Add your styles for screens between 1025px and 1200px here */
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Add your styles for screens between 769px and 1024px here */
 }
 
 @media (max-width: 768px) {
 }
 
-@media (max-width: 576px) {
+@media (max-width: 480px) {
   .footer {
     display: none;
   }

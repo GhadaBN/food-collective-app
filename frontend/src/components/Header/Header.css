@@ -60,7 +60,25 @@
   left: 2%;
 }
 
-@media (max-width: 480px) {
+@media (min-width: 1201px) {
+  /* Add your styles for screens larger than 1200px here */
+}
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+  /* Add your styles for screens between 1025px and 1200px here */
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hot-sticker {
+    width: 12rem;
+  }
+  .heart-sticker {
+    width: 6.5rem;
+  }
+  .header-button {
+    box-shadow: -6px 6px 0px black;
+    font-size: 1.4rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -79,21 +97,23 @@
   }
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
-  .hot-sticker {
-    width: 12rem;
-  }
+@media (max-width: 480px) {
+  .hot-sticker,
   .heart-sticker {
-    width: 6.5rem;
+    display: none;
   }
   .header-button {
-    box-shadow: -6px 6px 0px black;
-    font-size: 1.4rem;
+    position: relative;
+    box-shadow: -2px 2px 0px black;
+    border: solid 1px black;
+    margin: 2vw;
   }
-}
-
-@media (min-width: 1025px) and (max-width: 1200px) {
-}
-
-@media (min-width: 1201px) {
+  .header-content {
+    width: 100vw;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+    margin-top: 2rem;
+    padding-bottom: 5rem;
+  }
 }

@@ -21,22 +21,34 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
+  height: 100%;
 }
+
 .logo-icon {
   width: 2.6rem;
-  margin-top: 0.2rem;
+  display: block;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.navbar-menu-container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
 }
 
 .navbar-menu {
   display: flex;
   list-style: none;
   gap: 3rem;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
+  align-items: center;
 }
+
 .navbar li {
   cursor: pointer;
 }
+
 .navbar-right {
   display: flex;
   align-items: center;
@@ -45,24 +57,29 @@
 
 .navbar-right img {
   width: 2rem;
-  position: relative;
+  display: flex;
+  align-items: center;
 }
+
 .navbar .active {
-  padding-bottom: 3px;
-  border-bottom: 2px solid black;
+  padding-bottom: 1px;
+  border-bottom: 2.5px solid black;
 }
 
 .basket-container {
   position: relative;
+  display: flex;
+  align-items: center;
 }
+
 .basket-container .dot {
   position: absolute;
-  min-width: 13px;
-  min-height: 13px;
+  min-width: 0.8rem;
+  min-height: 0.8rem;
   background-color: #fc0230;
-  border-radius: 8px;
-  top: 23px;
-  right: 23px;
+  border-radius: 50%;
+  top: 67%;
+  right: 1.4rem;
 }
 
 .logout-notification {
@@ -87,37 +104,69 @@
   color: #ff1414;
 }
 
+/* -------------------------Media Query-----------------------*/
+@media (min-width: 1201px) {
+  /* Add your styles for screens larger than 1200px here */
+}
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+  /* Add your styles for screens between 1025px and 1200px here */
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .navbar-menu {
+    gap: 2rem;
+    font-size: 1.2rem;
+  }
+
+  .navbar-right {
+    gap: 2rem;
+  }
+}
+
 @media (max-width: 768px) {
   .navbar {
-    border: 2px solid black;
-    margin: 1rem auto 0 auto;
+    border: 2.5px solid black;
   }
+  .logo-icon {
+    width: 2rem;
+  }
+
   .navbar-menu {
-    display: none;
+    gap: 1rem;
+    font-size: 1.2rem;
   }
+
   .navbar-right {
     gap: 1.5rem;
   }
+
+  .navbar-right img {
+    width: 1.7rem;
+  }
+
+  .navbar .active {
+    padding-bottom: 1.5px;
+    border-bottom: 1.5px solid black;
+  }
+  .basket-container .dot {
+    position: absolute;
+    min-width: 0.8rem;
+    min-height: 0.8rem;
+    background-color: #fc0230;
+    border-radius: 50%;
+    top: 63%;
+    right: 1.1rem;
+  }
 }
 
-@media (min-width: 769px) and (max-width: 992px) {
+@media (max-width: 480px) {
+  .navbar {
+    border: 2px solid black;
+    padding: 0 1.6rem;
+    height: 3.2rem;
+  }
   .navbar-menu {
-    gap: 2rem;
-    font-size: 1.2rem;
-  }
-
-  .navbar-right {
-    gap: 2rem;
-  }
-}
-
-@media (min-width: 993px) and (max-width: 1200px) {
-  .navbar-menu {
-    gap: 2rem;
-    font-size: 1.2rem;
-  }
-
-  .navbar-right {
-    gap: 2rem;
+    display: none;
   }
 }

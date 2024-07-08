@@ -76,7 +76,7 @@
 
 .button-restaurant-name {
   width: 90%;
-  padding: 0.2rem 1.5rem;
+  padding: 0.2rem 0.7rem;
   border-radius: 20px;
   border: solid 2px black;
   background-color: #fc0230;
@@ -168,5 +168,10 @@
     font-size: 1.3rem;
     top: 6%;
     left: 10%;
+  }
+  .category-tag,
+  .button-restaurant-name,
+  .category-buttons-wrapper button {
+    font-size: 1.5rem;
   }
 }

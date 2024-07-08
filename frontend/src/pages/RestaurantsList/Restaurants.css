@@ -75,3 +75,19 @@
 .menu-display {
   width: 100%;
 }
+
+/* -------------------------Media Query-----------------------*/
+@media (min-width: 1201px) {
+}
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+}
+
+@media (max-width: 768px) {
+}
+
+@media (max-width: 480px) {
+}

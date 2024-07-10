@@ -54,7 +54,7 @@ function RestaurantDetails() {
           <div className="image-container">
             <img src={restaurant.image} />
           </div>
-          <p className="description">{restaurant.description}</p>
+          {/* <p className="restaurant-description ">{restaurant.description}</p> */}
           {/* <p> {restaurant.category}</p> */}
         </div>
       )}

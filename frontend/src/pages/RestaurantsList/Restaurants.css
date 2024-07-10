@@ -49,16 +49,6 @@
   object-fit: cover;
 }
 
-.restaurant-header .description {
-  padding: 5px 10px;
-  border-radius: 25px;
-  border: solid 2px black;
-  background-color: #fc0230;
-  box-shadow: -2px 2px 0px black;
-  font-size: 1.2rem;
-  padding: 5px 20px;
-}
-
 .right-container {
   width: 50%;
   display: flex;

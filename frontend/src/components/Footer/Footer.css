@@ -1,47 +1,67 @@
-/* .heart_sticker {
-  position: absolute;
-  bottom: 20%;
-  left: 10%;
-  z-index: 100;
-  width: 120px;
-  position: fixed;
-
-  animation: float 7s ease-in-out infinite, shadow-float 7s ease-in-out infinite;
+.footer {
+  width: 98%;
+  margin: 3rem auto 1rem auto;
+  padding: 2rem 1rem;
+  display: flex;
+  justify-content: flex-end; /* Align the footer content to the right */
 }
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  justify-content: center;
+  width: auto;
+}
+
 .footer-button {
-  padding: 10px 25px;
-  border-radius: 50px;
-  border: solid 2px black;
+  font-size: 1.1rem;
   background-color: #eebdbe;
-  box-shadow: -8px 8px 0px black;
-  position: absolute;
-  font-size: 1.5rem;
-  bottom: 10%;
-  left: 5%;
-  animation: float 7s ease-in-out infinite, shadow-float 7s ease-in-out infinite;
-  position: fixed;
+  border: 1.5px solid black;
+  border-radius: 50px;
+  padding: 0.3rem 1rem;
+  color: black;
 }
 
-@keyframes float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0);
-  }
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-@keyframes shadow-float {
-  0% {
-    filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
+.footer-links ul {
+  display: flex;
+  font-size: 1.1rem;
+  gap: 3rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-hr {
+  width: 100%;
+  border: none;
+  border-top: 1px solid #000;
+}
+
+/* -------------------------Media Query-----------------------*/
+@media (min-width: 1201px) {
+  /* Add your styles for screens larger than 1200px here */
+}
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+  /* Add your styles for screens between 1025px and 1200px here */
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Add your styles for screens between 769px and 1024px here */
+}
+
+@media (max-width: 768px) {
+}
+
+@media (max-width: 480px) {
+  .footer {
+    display: none;
   }
-  50% {
-    filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.1));
-  }
-  100% {
-    filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
-  }
-} */
+}

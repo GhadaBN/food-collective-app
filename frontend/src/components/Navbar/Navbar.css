@@ -1,9 +1,9 @@
 .navbar {
-  width: 95%;
-  min-width: 95%;
+  width: 96%;
+  min-width: 96%;
   height: 3.8rem;
   margin: 1.5rem auto 0 auto;
-  padding: 0.5rem 2.5rem;
+  padding: 0.5rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -12,24 +12,42 @@
   background-color: #eee3d2;
   z-index: 1000;
   top: 0;
+  left: 50%;
+  transform: translateX(-50%);
   position: fixed;
 }
 
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
 .logo-icon {
-  position: relative;
-  height: auto;
-  width: 2.2rem;
+  width: 2.6rem;
+  display: block;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.navbar-menu-container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
 }
 
 .navbar-menu {
   display: flex;
-  list-style: none;
   gap: 3rem;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
+  align-items: center;
 }
+
 .navbar li {
   cursor: pointer;
 }
+
 .navbar-right {
   display: flex;
   align-items: center;
@@ -37,34 +55,39 @@
 }
 
 .navbar-right img {
-  width: 1.6rem;
-  position: relative;
+  width: 2rem;
+  display: flex;
+  align-items: center;
 }
+
 .navbar .active {
-  padding-bottom: 3px;
-  border-bottom: 2px solid black;
+  padding-bottom: 1px;
+  border-bottom: 2.5px solid black;
 }
 
 .basket-container {
   position: relative;
+  display: flex;
+  align-items: center;
 }
+
 .basket-container .dot {
   position: absolute;
-  min-width: 12px;
-  min-height: 12px;
-  background-color: #ff1414;
-  border-radius: 8px;
-  top: 17px;
-  right: 17px;
+  min-width: 0.8rem;
+  min-height: 0.8rem;
+  background-color: #fc0230;
+  border-radius: 50%;
+  top: 67%;
+  right: 1.4rem;
 }
 
 .logout-notification {
   position: absolute;
-  top: 100%;
+  top: 1.7rem;
   right: 0;
-  background-color: white;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  background-color: #fc0230;
+  border: 2px solid #eee3d2;
+  border-radius: 10px;
   padding: 0.5rem 1rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   display: none;
@@ -75,7 +98,76 @@
 }
 
 .logout-notification p {
+  text-align: center;
+  font-size: 1.1rem;
   margin: 0;
   cursor: pointer;
-  color: #ff1414;
+  color: #eee3d2;
+}
+
+/* -------------------------Media Query-----------------------*/
+@media (min-width: 1201px) {
+  /* Add your styles for screens larger than 1200px here */
+}
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+  /* Add your styles for screens between 1025px and 1200px here */
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .navbar-menu {
+    gap: 2rem;
+    font-size: 1.2rem;
+  }
+
+  .navbar-right {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    border: 2.5px solid black;
+  }
+  .logo-icon {
+    width: 2rem;
+  }
+
+  .navbar-menu {
+    gap: 1rem;
+    font-size: 1.2rem;
+  }
+
+  .navbar-right {
+    gap: 1.5rem;
+  }
+
+  .navbar-right img {
+    width: 1.7rem;
+  }
+
+  .navbar .active {
+    padding-bottom: 1.5px;
+    border-bottom: 1.5px solid black;
+  }
+  .basket-container .dot {
+    position: absolute;
+    min-width: 0.8rem;
+    min-height: 0.8rem;
+    background-color: #fc0230;
+    border-radius: 50%;
+    top: 63%;
+    right: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    border: 2px solid black;
+    padding: 0 1.6rem;
+    height: 3.2rem;
+  }
+  .navbar-menu {
+    display: none;
+  }
 }

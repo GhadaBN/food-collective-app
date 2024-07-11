@@ -24,7 +24,6 @@
   background-color: #eebdbe;
   box-shadow: -2px 2px 0px black;
   font-size: 1rem;
-  padding: 5px 20px;
 }
 
 .multi-fields {
@@ -34,6 +33,7 @@
 }
 
 input {
+  outline: none;
   flex: 1;
   background-color: #f5f1ec;
   border: 1px solid black;

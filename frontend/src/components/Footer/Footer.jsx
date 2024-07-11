@@ -1,16 +1,22 @@
-// import React from "react";
-// import "./Footer.css";
-// import { Link } from "react-router-dom";
-// import { assets } from "../../assets/assets";
-// function Footer() {
-//   return (
-//     <div className="footer-container">
-//       <img src={assets.heart_sticker} className="heart_sticker" />
-//       <Link to="/restaurants" className="footer-button">
-//         Explore Restaurants
-//       </Link>
-//     </div>
-//   );
-// }
+import React from "react";
+import "./Footer.css";
 
-// export default Footer;
+function Footer() {
+  return (
+    <div className="footer" id="footer">
+      <div className="footer-content">
+        <div className="footer-links">
+          <ul>
+            <li>Github</li>
+            <li>Linkedin</li>
+            <li>About us</li>
+          </ul>
+          <hr className="footer-hr" />
+        </div>
+        <p className="footer-button">Contact us</p>
+      </div>
+    </div>
+  );
+}
+
+export default Footer;

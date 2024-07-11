@@ -8,10 +8,11 @@ function Header() {
     <div className="header">
       <div className="header-content">
         <div className="img-container">
-          <img src={assets.sticker_hot} className="hot_sticker" />
-          <img src={assets.heart_sticker} className="heart_sticker" />
           <img src="/header_text.png" className="header-img" />
         </div>
+
+        <img src={assets.sticker_hot} className="hot-sticker" />
+        <img src={assets.heart_sticker} className="heart-sticker" />
         <Link to="/restaurants" className="header-button">
           Explore Restaurants
         </Link>

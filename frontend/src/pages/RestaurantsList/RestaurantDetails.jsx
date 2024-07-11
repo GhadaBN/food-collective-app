@@ -16,7 +16,6 @@ function RestaurantDetails() {
     if (restaurantData) {
       setRestaurant(restaurantData);
     } else {
-      // Fetch restaurant details if not found in context
       axios
         .get(`${url}/api/restaurant/${restaurantId}`)
         .then((resp) => {
@@ -48,14 +47,14 @@ function RestaurantDetails() {
   }, [restaurantId, restaurants, url]);
 
   return (
-    <div className="restaurant-details-container">
+    <div className="sections-wrapper">
       {restaurant && (
         <div className="restaurant-header">
           <h1 className="restaurant-name">{restaurant.restaurantName}</h1>
           <div className="image-container">
             <img src={restaurant.image} />
           </div>
-          <p className="description">{restaurant.description}</p>
+          {/* <p className="restaurant-description ">{restaurant.description}</p> */}
           {/* <p> {restaurant.category}</p> */}
         </div>
       )}

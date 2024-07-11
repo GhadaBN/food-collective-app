@@ -22,12 +22,6 @@ function Cart() {
           return item ? (
             <div key={itemId}>
               <div className="cart-item">
-                {/* Uncomment and adjust the image if needed */}
-                {/* <img
-                  src={`${url}/images/${item.image}`}
-                  className="cart-item-image"
-                  alt={item.itemName}
-                /> */}
                 <p className="cart-item-name">{item.itemName}</p>
                 <p className="cart-item-price">€{item.price}</p>
                 <p className="cart-item-quantity">{quantity}</p>
@@ -36,7 +30,7 @@ function Cart() {
                   className="cart-item-remove"
                   onClick={() => removeFromCart(itemId)}
                 >
-                  REMOVE
+                  Remove
                 </button>
               </div>
             </div>
@@ -45,7 +39,7 @@ function Cart() {
       </div>
       <div className="cart-bottom-container">
         <div className="cart-total">
-          <p className="title-delivery">Cart Total</p>
+          <p className="title-delivery">Total amount</p>
           <div className="cart-total-details">
             <p>Subtotal</p>
             <p>€{getTotalCartAmount()}</p>

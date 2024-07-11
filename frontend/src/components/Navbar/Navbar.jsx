@@ -44,7 +44,7 @@ function Navbar({ setShowLogin }) {
             onClick={() => setMenu("our-story")}
             className="nav-link"
           >
-            Our Story
+            Collective
           </Link>
         </li>
       </ul>

@@ -6,7 +6,7 @@ const Stripe = require("stripe");
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 const placeOrder = async (req, res) => {
-  const frontend_url = "http://localhost:5173";
+  const frontend_url = "https://tomato-social-frontend.onrender.com";
   try {
     // Extract user ID from the authenticated user
     const userId = req.payload._id;

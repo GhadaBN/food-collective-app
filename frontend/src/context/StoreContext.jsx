@@ -17,7 +17,7 @@ const StoreContextProvider = ({ children }) => {
   const [menuItems, setMenuItems] = useState([]);
   const [restaurants, setRestaurants] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const url = "http://localhost:5005";
+  const url = "https://tomato-social-backend.onrender.com";
   const [token, setToken] = useState(() => localStorage.getItem("token") || "");
 
   useEffect(() => {

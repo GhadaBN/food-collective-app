@@ -18,7 +18,7 @@ const app = express();
 require("./config")(app);
 app.use(
   cors({
-    origin: "http://localhost:5173", // Specific origin
+    origin: "https://tomato-social-frontend.onrender.com", // Specific origin
     credentials: true, // to allow cookies to be shared between backend and frontend
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     preflightContinue: false,

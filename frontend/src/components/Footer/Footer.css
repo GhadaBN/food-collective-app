@@ -1,9 +1,9 @@
 .footer {
   width: 98%;
-  margin: 3rem auto 1rem auto;
+  margin: 1rem auto 1rem auto;
   padding: 2rem 1rem;
   display: flex;
-  justify-content: flex-end; /* Align the footer content to the right */
+  justify-content: flex-end;
 }
 
 .footer-content {

@@ -31,11 +31,11 @@ function MyOrders() {
   return (
     <div className="sections-wrapper">
       <div className="left-container">
-        
+
         <div className="photo-container">
           <img className="responsive-image" src={assets.our_story} />
         </div>
-        
+
       </div>
       <div className="right-container">
         <div className="my-orders">

@@ -45,8 +45,8 @@
   font-family: outfit;
 }
 body {
-  padding-top: 5.5rem;
-  min-height: 100vh;
+  padding-top: 5rem;
+  min-height: 90vh;
   min-width: 100vw;
   overflow-x: hidden;
   background-color: #eee3d2;

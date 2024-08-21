@@ -13,7 +13,8 @@ const cookieParser = require("cookie-parser");
 // unless the request is made from the same domain, by default express wont accept POST requests
 const cors = require("cors");
 
-const FRONTEND_URL = process.env.ORIGIN || "https://tomato-social-frontend.onrender.com";
+const FRONTEND_URL =
+  process.env.ORIGIN || "https://tomato-social-frontend.onrender.com";
 
 // Middleware configuration
 module.exports = (app) => {

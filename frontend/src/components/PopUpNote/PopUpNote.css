@@ -1,0 +1,31 @@
+.popup {
+  position: absolute;
+  top: 20vh;
+  left: 20%;
+  background-color: #eee3d2;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 2000;
+}
+
+.popup-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.popup p {
+  width: 20vw;
+  text-align: center;
+  font-size: 1.1rem;
+  margin: 15px 5px 15px 5px;
+  cursor: pointer;
+  color: black;
+}
+
+.close-button {
+  margin: 5px;
+  width: 15px;
+  cursor: pointer;
+}

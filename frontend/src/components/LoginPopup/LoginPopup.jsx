@@ -50,7 +50,7 @@ const LoginPopup = ({ setShowLogin }) => {
         // If signing up, attempt to log in the user
         await authenticateUser({ email: data.email, password: data.password });
       } else if (response.data.authToken) {
-        // If logging in
+        console.log("Token received:", response.data.authToken);
         setToken(response.data.authToken);
         localStorage.setItem("token", response.data.authToken);
         setShowLogin(false);

@@ -12,6 +12,7 @@ import Verify from "./pages/Verify/Verify";
 import MyOrders from "./pages/MyOrders/MyOrders";
 import Footer from "./components/Footer/Footer";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
+import PopupNote from "./components/PopUpNote/PopUpNote";
 
 const App = () => {
   const [showLogin, setShowLogin] = useState(false);
@@ -20,6 +21,7 @@ const App = () => {
     <>
       {showLogin && <LoginPopup setShowLogin={setShowLogin} />}
       <div className="app">
+        <PopupNote />
         <Navbar setShowLogin={setShowLogin} />
         <ScrollToTop />
         <Routes>

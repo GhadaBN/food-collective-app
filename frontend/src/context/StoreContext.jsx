@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect } from "react";
 import axios from "axios";
+import LoginPopup from "../components/LoginPopup/LoginPopup"; // Assuming you have this component
 
 export const StoreContext = createContext();
 
@@ -17,12 +18,44 @@ const StoreContextProvider = ({ children }) => {
   const [menuItems, setMenuItems] = useState([]);
   const [restaurants, setRestaurants] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [showLoginPopup, setShowLoginPopup] = useState(false);
   const url = "https://tomato-social-backend.onrender.com";
   const [token, setToken] = useState(() => localStorage.getItem("token") || "");
 
+  // Manual JWT decoding and expiration check
+  const decodeToken = (token) => {
+    try {
+      const base64Url = token.split(".")[1];
+      const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+      const jsonPayload = decodeURIComponent(
+        atob(base64)
+          .split("")
+          .map((c) => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2))
+          .join("")
+      );
+      return JSON.parse(jsonPayload);
+    } catch (error) {
+      console.error("Failed to decode token:", error);
+      return null;
+    }
+  };
+
+  const isTokenExpired = (token) => {
+    const decodedToken = decodeToken(token);
+    if (!decodedToken || !decodedToken.exp) return true;
+
+    const currentTime = Date.now() / 1000; // Current time in seconds
+    return decodedToken.exp < currentTime;
+  };
+
   useEffect(() => {
-    localStorage.setItem("token", token);
-    setIsLoggedIn(!!token);
+    if (token && isTokenExpired(token)) {
+      console.log("Token has expired");
+      logout(); // Log out if the token has expired
+    } else if (token) {
+      localStorage.setItem("token", token);
+      setIsLoggedIn(true);
+    }
   }, [token]);
 
   useEffect(() => {
@@ -154,6 +187,7 @@ const StoreContextProvider = ({ children }) => {
     localStorage.removeItem("token");
     localStorage.removeItem("cartItems");
     setIsLoggedIn(false);
+    setShowLoginPopup(true); // Show the login popup
   };
 
   const contextValue = {
@@ -174,6 +208,7 @@ const StoreContextProvider = ({ children }) => {
   return (
     <StoreContext.Provider value={contextValue}>
       {children}
+      {showLoginPopup && <LoginPopup setShowLogin={setShowLoginPopup} />}
     </StoreContext.Provider>
   );
 };

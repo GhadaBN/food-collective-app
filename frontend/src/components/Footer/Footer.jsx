@@ -8,8 +8,24 @@ function Footer() {
       <div className="footer-content">
         <div className="footer-links">
           <ul>
-            <li>Github</li>
-            <li>Linkedin</li>
+            <li>
+              <a
+                href="https://github.com/GhadaBN/food-collective-app"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Github
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/ghadabennasr-web-developer-designer/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Linkedin
+              </a>
+            </li>
             <li>
               <Link to="/our-story">About us</Link>
             </li>
